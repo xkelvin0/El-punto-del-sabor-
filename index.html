@@ -16,7 +16,10 @@
 
   <!-- Enlaces a las hojas de estilo CSS -->
 
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="responsive.css">
   <link rel="stylesheet" href="animations.css">
 
   <!-- Título de la pestaña del navegador -->
@@ -85,7 +88,7 @@
         <!-- Plato 2 -->
         <div class="dish-card">
           <div class="dish-badge">Recomendado</div>
-          <img src="imagenes/chijaukay.jpg" alt="Chijaukay" class="dish-image">
+          <img src="imagenes/chijaukai2.jpeg" alt="Chijaukay" class="dish-image">
           <div class="dish-content">
             <h3>Chijaukay</h3>
             <p>Pollo frito crujiente bañado en nuestra especial salsa de soya y ostión.</p>
@@ -125,7 +128,7 @@
         <!-- Promoción 1 -->
         <div class="promo-card">
           <div class="promo-badge">-15%</div>
-          <img src="imagenes/arrozchaufa.jpg" alt="Combo Chaufa Especial" class="promo-image">
+          <img src="imagenes/promochaufa.png.png" alt="Combo Chaufa Especial" class="promo-image">
           <div class="promo-content">
             <h3>Combo Chaufa Familiar</h3>
             <p class="promo-desc">2 Arroces Chaufa + 1 Gaseosa 1.5L + 1 Porción de Wantanes</p>
@@ -133,7 +136,7 @@
               <span class="original-price">S/ 52.00</span>
               <span class="discounted-price">S/ 45.00</span>
             </div>
-            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=arroz-chaufa'">Ver Detalles</button>
+            <button class="btn-promo" onclick="agregarAlCarrito('combo-chaufa', 'Combo Chaufa Familiar', 45.00, 'imagenes/promochaufa.png.png')">Comprar</button>
             <div class="promo-timer">
               <i class="far fa-clock"></i> Termina en: <span class="countdown">23:59:59</span>
             </div>
@@ -143,7 +146,7 @@
         <!-- Promoción 2 -->
         <div class="promo-card">
           <div class="promo-badge">2x1</div>
-          <img src="imagenes/wantan.jpg" alt="Martes de Wantanes" class="promo-image">
+          <img src="imagenes/wantanfrito.png" alt="Martes de Wantanes" class="promo-image">
           <div class="promo-content">
             <h3>Martes de Wantanes</h3>
             <p class="promo-desc">Lleva 2 porciones de Wantanes por el precio de 1</p>
@@ -151,7 +154,7 @@
               <span class="original-price">S/ 16.00</span>
               <span class="discounted-price">S/ 8.00 c/u</span>
             </div>
-            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=wantan-frito'">Ver Detalles</button>
+            <button class="btn-promo" onclick="agregarAlCarrito('Martes de wantanes', 'Martes de Wantanes', 8.00, 'imagenes/wantanfrito.png')">Comprar</button>
             <div class="promo-tag">Válido solo martes</div>
           </div>
         </div>
@@ -159,7 +162,7 @@
         <!-- Promoción 3 -->
         <div class="promo-card">
           <div class="promo-badge">Combo</div>
-          <img src="imagenes/aeropuerto.jpg" alt="Combo Aeropuerto" class="promo-image">
+          <img src="imagenes/promosiumai.png" alt="Combo Aeropuerto" class="promo-image">
           <div class="promo-content">
             <h3>Combo Aeropuerto</h3>
             <p class="promo-desc">1 Aeropuerto + 1 Gaseosa Personal + 1 Porción de Siu Mai</p>
@@ -167,7 +170,7 @@
               <span class="original-price">S/ 35.00</span>
               <span class="discounted-price">S/ 28.00</span>
             </div>
-            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=aeropuerto'">Ver Detalles</button>
+            <button class="btn-promo" onclick="agregarAlCarrito('aeropuerto', 'Combo Aeropuerto', 28.00, 'imagenes/promosiumai.png')">Comprar</button>
             <div class="promo-tag">Oferta del día</div>
           </div>
         </div>

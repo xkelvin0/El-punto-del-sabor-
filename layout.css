@@ -1,0 +1,1153 @@
+/* ============================================
+   LAYOUT STYLES - HEADER, NAVIGATION, SECTIONS, FOOTER
+   ============================================ */
+
+/* ============================================
+   #2. ENCABEZADO Y NAVEGACIÓN
+   ============================================ */
+
+/* Barra de navegación */
+.navbar {
+  background-color: #8B0000; /* Rojo vino oscuro */
+  font-family: 'Rosarivo', serif;
+  padding: 1rem 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ===== FLEXBOX EJEMPLO 3: MENÚ DE NAVEGACIÓN ===== */
+/* Este ejemplo muestra cómo crear un menú horizontal con Flexbox */
+.nav-list {
+  /* INICIO DE FLEXBOX */
+  display: inline-flex;    /* Crea un contenedor flex en línea */
+  gap: 2rem;              /* Espacio entre elementos del menú */
+  /* FIN DE FLEXBOX */
+
+  list-style: none;       /* Elimina las viñetas de la lista */
+  margin: 0;              /* Elimina márgenes predeterminados */
+  padding: 0;             /* Elimina relleno predeterminado */
+}
+
+/* Estilos de los enlaces de navegación */
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.8rem;
+  font-family: "Imprima", Helvetica, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #ffd6c2;
+}
+
+/* Lista horizontal sin viñetas */
+.nav-list {
+  list-style: none;
+  display: inline-flex;
+  /* Centrado dentro del nav gracias al text-align */
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🎯 Enlaces blancos, sin subrayado, con peso visual */
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.8rem;
+  font-family: "Imprima", Helvetica, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* ✨ Hover quirúrgico */
+.nav-list a:hover {
+  color: #ffd6c2;
+}
+
+/* Estilos para el campo de búsqueda */
+.search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 20px auto 30px;
+  width: 90%;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput:focus {
+  border-color: #8B0000;
+  box-shadow: 0 2px 15px rgba(139, 0, 0, 0.2);
+}
+
+.search-container .fa-search {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+/* ================= ESTILOS PARA LEMA FAMILIAR ================= */
+.lema-familiar {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  padding: 40px 0;
+  text-align: center;
+  border-bottom: 1px solid #ffebee;
+  border-top: 1px solid #ffebee;
+  margin: 30px 0;
+}
+
+.lema-familiar .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.lema-texto {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  font-style: italic;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* ===== CONTENEDOR PRINCIPAL DEL LEMA ===== */
+.lema {
+  width: 100%;
+  /* Ocupa todo el ancho disponible de la pantalla */
+  padding: 40px 20px;
+  /* Espaciado interno: 40px arriba/abajo, 20px a los lados */
+  text-align: center;
+  /* Centra el texto */
+}
+
+.lema p {
+  font-size: 1.5rem;
+  /* Tamaño de fuente aumentado */
+  line-height: 1.6;
+  /* Espaciado entre líneas */
+  width: 55%;
+  /* Ancho reducido para forzar dos líneas */
+  margin: 0 auto;
+}
+
+/* Estilos para el botón hamburguesa */
+.menu-hamburguesa {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu-hamburguesa:hover {
+  color: #ffd6c2;
+}
+
+/* Mostrar botón hamburguesa solo en móviles */
+@media (max-width: 768px) {
+  .menu-hamburguesa {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(139, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-hamburguesa.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .menu-hamburguesa.active i {
+    transform: rotate(180deg);
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 2rem;
+  }
+
+  .nav-list a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ============================================
+   #3. SECCIÓN DE INICIO
+   ============================================ */
+
+/* ===== FLEXBOX EJEMPLO 1: CONTENEDOR PRINCIPAL ===== */
+/* Este es un ejemplo clásico de centrado vertical y horizontal con Flexbox */
+.Inicio {
+  width: 100%;
+  min-height: 400px;
+  background-color: #df9d05; /* Color dorado */
+
+  /* INICIO DE FLEXBOX */
+  display: flex;                /* Activa el modelo de caja flexible */
+  flex-direction: column;       /* Apila los elementos verticalmente */
+  align-items: center;         /* Centrado horizontal */
+  justify-content: center;     /* Centrado vertical */
+  /* FIN DE FLEXBOX */
+
+  text-align: center;
+  padding: 20px;
+  color: white; /* Texto en blanco */
+}
+
+/* ===== GRUPO DE LOGO + TITULO ===== */
+.Inicio .overlap-group {
+  display: flex;
+  /* Flexbox para ordenar elementos */
+  flex-direction: column;
+  /* Apila logo y texto verticalmente */
+  align-items: center;
+  /* Centra los elementos */
+  gap: 10px;
+  /* Espacio entre logo y título */
+}
+
+/* ===== LOGO ===== */
+.Inicio img {
+  max-width: 200px;
+  /* Ancho máximo del logo */
+  width: 100%;
+  /* Escala con el contenedor */
+  height: auto;
+  /* Mantiene proporción */
+  object-fit: contain;
+  /* Ajusta la imagen sin recortarla */
+  margin-bottom: 5px;
+  /* Pequeño espacio debajo del logo */
+}
+
+/* ===== TITULO PRINCIPAL ===== */
+.Inicio .text-wrapper {
+  font-family: "RocknRoll One", Helvetica, sans-serif;
+  /* Fuente personalizada */
+  font-size: 42px;
+  /* Tamaño grande */
+  font-weight: 700;
+  /* Texto en negrita */
+  color: white !important;
+  /* Texto blanco forzado */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== SLOGAN ===== */
+.Inicio .slogan {
+  margin-top: 15px;
+  font-family: "Imprima", sans-serif;
+  font-weight: 400;
+  color: white !important;
+  font-size: 22px;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* ===== EFECTOS DE TEXTO ===== */
+.Inicio .text-wrapper,
+.Inicio .slogan {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* Sombra ligera para legibilidad */
+}
+
+/* ===== ANIMACION AL LOGO ===== */
+.Inicio img:hover {
+  transform: scale(1.05);
+  /* Aumenta un 5% al pasar el mouse */
+  transition: transform 0.3s ease-in-out;
+  /* Suaviza la animación */
+}
+
+/* ============================================
+   #5. PIE DE PÁGINA (FOOTER)
+   ============================================ */
+
+/* Contenedor principal del footer */
+.site-footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 4rem 2rem 1rem;
+  font-family: 'Imprima', sans-serif;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ===== FLEXBOX EJEMPLO 2: FOOTER RESPONSIVO ===== */
+/* Este ejemplo muestra cómo crear un diseño de columnas responsivo */
+.footer-content {
+  /* INICIO DE FLEXBOX */
+  display: flex;                /* Activa flexbox */
+  flex-wrap: wrap;              /* Permite que los elementos se envuelvan */
+  justify-content: space-between; /* Distribuye el espacio entre elementos */
+  gap: 2rem;                    /* Espacio entre elementos */
+  /* FIN DE FLEXBOX */
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+/* Secciones individuales del footer */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  padding: 0 15px;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: #df9d05;
+  margin-bottom: 20px;
+  font-size: 1.8rem; /* Tamaño aumentado */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  padding-bottom: 12px;
+  font-weight: 600; /* Texto más grueso */
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #df9d05;
+}
+
+.footer-section h3 i {
+  font-size: 1.2em;
+  color: #df9d05;
+}
+
+.footer-section p {
+  margin: 1rem 0;
+  color: #e0e0e0; /* Color más claro para mejor contraste */
+  line-height: 1.8;
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.2rem; /* Tamaño de fuente aumentado */
+}
+
+.footer-section i {
+  color: #df9d05;
+  margin-right: 12px;
+  margin-top: 4px; /* Ajuste fino de alineación vertical */
+  width: 24px; /* Iconos ligeramente más grandes */
+  font-size: 1.3rem; /* Tamaño de iconos aumentado */
+  text-align: center;
+  flex-shrink: 0; /* Evita que los iconos se encojan */
+}
+
+/* Estilos para los vectores personalizados */
+.wok-vector {
+  text-align: center;
+  margin: -40px auto 20px;
+  transition: transform 0.5s ease;
+}
+
+.wok-vector:hover {
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+.noodles {
+  animation: float 3s ease-in-out infinite;
+}
+
+.noodles:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.noodles:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.steam {
+  animation: steam 4s ease-out infinite;
+  opacity: 0;
+}
+
+.steam:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.opening-vector {
+  text-align: center;
+  margin: 20px 0;
+  opacity: 0.9;
+}
+
+.clock-svg {
+  transition: transform 0.3s ease;
+}
+
+.clock-svg:hover {
+  transform: scale(1.1);
+}
+
+.hour-hand, .minute-hand {
+  transform-origin: 50% 50%;
+  animation: tick-tock 10s infinite linear;
+}
+
+.minute-hand {
+  animation: tick-tock 2s infinite steps(12);
+}
+
+/* Mejoras en los enlaces sociales */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background-color: #df9d05;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* ============================================
+   #6. SECCIÓN ¿SABÍAS QUÉ?
+   ============================================ */
+
+/* Contenedor principal de la sección */
+.sabias-que {
+  background: linear-gradient(135deg, #fff9f2 0%, #fff0e1 100%);
+  padding: 5rem 1rem;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.sabias-que::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #8B0000, #d4af37);
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.imagen-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagen-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-chifa {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imagen-container:hover .imagen-chifa {
+  transform: scale(1.05);
+}
+
+.texto {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.texto h2 {
+  font-size: 2.5rem;
+  color: #8B0000;
+  margin-bottom: 2rem;
+  font-family: 'Rosarivo', serif;
+  position: relative;
+  display: inline-block;
+}
+
+.texto h2 i {
+  margin-right: 15px;
+  color: #d4af37;
+}
+
+.datos {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.dato-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.dato-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.dato-item:hover {
+  transform: translateX(10px);
+}
+
+.dato-item i {
+  font-size: 1.5rem;
+  color: #d4af37;
+  margin-right: 1.2rem;
+  margin-top: 0.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.dato-item p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.dato-item strong {
+  color: #8B0000;
+  font-weight: 600;
+}
+
+.cita-final {
+  background: linear-gradient(135deg, #8B0000, #a52a2a);
+  color: white;
+  margin: 4rem auto 0;
+  padding: 2.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 800px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2);
+  line-height: 1.8;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.cita-final i {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.cita-final p {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem;
+  position: relative;
+  padding: 0 2rem;
+  line-height: 1.8;
+}
+
+.cita-final .autor {
+  font-family: 'Rosarivo', serif;
+  color: #d4af37;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.cita-final .autor::before,
+.cita-final .autor::after {
+  content: '~';
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ESTILOS PARA CITAS ===== */
+p.quote {
+  font-size: 1.5rem; /* Tamaño aumentado */
+  color: #8B0000; /* Color rojo vino para destacar */
+  font-style: italic;
+  text-align: center;
+  max-width: 800px;
+  margin: 20px auto 30px;
+  line-height: 1.6;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+/*Menu*/
+.menu {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.menu h2 {
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.menu h3 {
+  margin: 20px 0 10px; /* Más espacio vertical */
+  font-weight: 600; /* Texto más grueso */
+  font-size: 2.2rem; /* Tamaño aumentado */
+  color: #8B0000; /* Color rojo vino para combinar con el tema */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  letter-spacing: 1px; /* Mejor espaciado entre letras */
+  text-align: center; /* Centrado */
+  position: relative;
+  padding-bottom: 10px; /* Espacio para la línea decorativa */
+}
+
+/* Línea decorativa debajo del título */
+.menu h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #8B0000, #d4af37); /* Degradado de rojo a dorado */
+  border-radius: 3px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 27px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  min-height: 400px;
+}
+
+.card img {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  display: block;
+}
+
+.precio-comprar {
+  margin-top: auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.linea {
+  width: 100%;
+  height: 3px;
+  background-color: #810000;
+  border: none;
+  margin: 0; /* sin margen extra */
+}
+
+.precio-comprar button {
+  width: 100%;  /* Ocupa todo el ancho del contenedor */
+  height: 50px;  /* Altura fija */
+  background-color: #c00;
+  color: white;
+  border: none;
+  border-bottom-left-radius: 27px;
+  border-bottom-right-radius: 27px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  display: block;
+  box-sizing: border-box;  /* Incluye padding y border en el ancho */
+  transition: all 0.3s ease;
+}
+
+.precio-comprar button:hover {
+  background-color: #a00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card.empty {
+  background-color: #f5f5f5;
+  border: 1px dashed #ccc;
+}
+
+.card h4 {
+  margin: 18px 18px 6px 18px;
+  font-size: 24px;
+  font-weight: normal; /* ← esto elimina la negrita */
+}
+
+.card p {
+  margin: 12px 18px 18px 18px; /* ↑ más espacio arriba */
+  color: #000;
+  font-size: 24 px;
+  line-height: 1.5;
+}
+
+.precio-comprar span {
+  margin-left: 18px;
+  margin-bottom: 15px; /* separación del botón */
+  font-size: 24px;
+  color: #000;
+  display: block;
+}
+/* ================= ESTILOS PARA PLATOS POPULARES ================= */
+.popular-dishes {
+  padding: 60px 0;
+  background-color: #fff9f9;
+}
+
+.popular-dishes .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+.section-header p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.dish-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Para posicionar badges correctamente */
+}
+
+.dish-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dish-badge {
+  position: absolute;
+  top: 40px; /* Bajado más para mejor posicionamiento */
+  right: 15px;
+  background: #ff6b6b;  
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dish-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.dish-content {
+  padding: 20px;
+}
+
+.dish-content h3 {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.dish-content p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.dish-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.dish-footer .price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff6b6b;
+}
+
+.btn-order {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-order:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .dishes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ================= ESTILOS PARA PROMOCIONES ================= */
+.promociones {
+  padding: 60px 0;
+  background-color: #fff9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Agrega estas líneas para igualar el ancho */
+.promociones .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.promociones::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ff6b6b);
+  background-size: 200% auto;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.promo-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  min-height: 550px; /* Aumentado para acomodar imágenes más grandes */
+}
+
+.promo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.promo-badge {
+  position: absolute;
+  top: 40px; /* Ajustado para bajar la posición */
+  right: 15px;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.promo-image {
+  width: 100%;
+  height: 350px; /* Aumentado para mejor visibilidad */
+  object-fit: cover;
+  display: block;
+}
+
+.promo-content {
+  padding: 20px;
+}
+
+.promo-content h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+.promo-desc {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  min-height: 45px;
+}
+
+.promo-price {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.discounted-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.btn-promo {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn-promo:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+.promo-timer, .promo-tag {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.promo-tag {
+  background: #fff0f0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  display: inline-flex;
+}
+
+.countdown {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .promo-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .promo-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .discounted-price {
+    font-size: 1.3rem;
+  }
+}

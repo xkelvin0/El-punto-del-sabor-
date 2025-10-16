@@ -5,6 +5,13 @@
 // Variables globales
 let carrito = [];
 
+// Definir reglas de promociones
+const promociones = {
+  'combo-chaufa-familiar': { tipo: 'porcentaje', valor: 15, descripcion: '-15%' },
+  'martes-de-wantanes': { tipo: '2x1', descripcion: '2x1' },
+  'combo-aeropuerto': { tipo: 'combo', descuento: 7, descripcion: 'Combo' } // S/ 35.00 - S/ 7.00 = S/ 28.00
+};
+
 // Función para agregar producto al carrito
 function agregarAlCarrito(id, nombre, precio, imagen, cantidad = 1) {
     const productoExistente = carrito.find(item => item.id === id);
@@ -64,6 +71,16 @@ function setupCarrito() {
                 const precio = precioTexto ? parseFloat(precioTexto.replace('S/ ', '').replace(',', '')) : 0;
                 const imagen = card.querySelector('img')?.src || '';
                 agregarAlCarrito(id, nombre, precio, imagen);
+            }
+        } else if (e.target.classList.contains('btn-promo')) {
+            // Manejar botones de promociones
+            const promoCard = e.target.closest('.promo-card');
+            if (promoCard) {
+                const nombre = promoCard.querySelector('h3').textContent;
+                const id = nombre.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                const discountedPrice = parseFloat(promoCard.querySelector('.discounted-price').textContent.replace('S/ ', '').replace(',', ''));
+                const imagen = promoCard.querySelector('.promo-image')?.src || '';
+                agregarAlCarrito(id, nombre, discountedPrice, imagen);
             }
         }
     });
@@ -165,11 +182,27 @@ function actualizarCarrito() {
     carrito.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = 'carrito-item';
+
+        let precioFinal = item.precio;
+        const promo = promociones[item.id];
+
+        if (promo) {
+          if (promo.tipo === 'porcentaje') {
+            precioFinal = item.precio * (1 - promo.valor / 100);
+          } else if (promo.tipo === '2x1') {
+            const pares = Math.floor(item.cantidad / 2);
+            const individuales = item.cantidad % 2;
+            precioFinal = (pares * item.precio) + (individuales * item.precio);
+          } else if (promo.tipo === 'combo' && promo.descuento) {
+            precioFinal = item.precio - promo.descuento;
+          }
+        }
+
         itemElement.innerHTML = `
             <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-imagen">
             <div class="carrito-item-info">
                 <h4>${item.nombre}</h4>
-                <p class="precio">S/ ${item.precio.toFixed(2)}</p>
+                <p class="precio">S/ ${precioFinal.toFixed(2)}</p>
                 <div class="cantidad-controls">
                     <button class="cantidad-btn" data-action="decrease" data-id="${item.id}">-</button>
                     <span class="cantidad">${item.cantidad}</span>
@@ -181,8 +214,28 @@ function actualizarCarrito() {
         carritoItems.appendChild(itemElement);
     });
 
-    // Calcular total
-    const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+    // Calcular total con promociones aplicadas
+    let total = 0;
+    carrito.forEach(item => {
+      let precioFinal = item.precio;
+      const promo = promociones[item.id];
+
+      if (promo) {
+        if (promo.tipo === 'porcentaje') {
+          precioFinal = item.precio * (1 - promo.valor / 100);
+        } else if (promo.tipo === '2x1') {
+          // Para 2x1: por cada 2 items, pagar solo 1
+          const pares = Math.floor(item.cantidad / 2);
+          const individuales = item.cantidad % 2;
+          precioFinal = (pares * item.precio) + (individuales * item.precio);
+        } else if (promo.tipo === 'combo' && promo.descuento) {
+          precioFinal = item.precio - promo.descuento;
+        }
+      }
+
+      total += precioFinal * item.cantidad;
+    });
+
     totalPrecio.textContent = `S/ ${total.toFixed(2)}`;
 
     // Configurar eventos de cantidad y eliminación

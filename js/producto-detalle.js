@@ -2,7 +2,7 @@
 const productos = {
   'wantan-frito': {
     nombre: 'Wantan Frito',
-    imagen: 'imagenes/wantan.jpg',
+    imagen: 'imagenes/wantanfrito.png',
     precio: 'S/ 8.00',
     descripcion: 'Crujientes wantanes fritos, rellenos de una mezcla jugosa de carne de cerdo y especias, acompañados de nuestra exclusiva salsa agridulce. Un clásico de la cocina chifa que no puede faltar en tu mesa (6 unidades).',
     ingredientes: [
@@ -93,7 +93,7 @@ const productos = {
   },
   'chaufa-chancho': {
     nombre: 'Arroz Chaufa de Chancho',
-    imagen: 'imagenes/chaufachancho.jpg',
+    imagen: 'imagenes/chaufachancho.jpeg',
     precio: 'S/ 20.00',
     descripcion: 'Una deliciosa variante de nuestro arroz chaufa, preparado con jugosos trozos de carne de cerdo, huevo, cebolla china y un toque de salsa de ostión. Un plato que conquista por su sabor único.',
     ingredientes: [
@@ -112,7 +112,7 @@ const productos = {
   },
   'chijaukay': {
     nombre: 'Chijaukay',
-    imagen: 'imagenes/chijaukay.jpg',
+    imagen: 'imagenes/chijaukai2.jpeg',
     precio: 'S/ 22.00',
     descripcion: 'Crujiente pollo frito bañado en nuestra exquisita salsa de soya y ostión. Un plato que combina la textura crujiente del pollo con el sabor umami de la salsa.',
     ingredientes: [
@@ -154,7 +154,7 @@ const productos = {
   },
   'pollo-enrollado': {
     nombre: 'Pollo Enrollado',
-    imagen: 'imagenes/polloenrollado.jpg',
+    imagen: 'imagenes/pollo enrollado.jpeg',
     precio: 'S/ 24.00',
     descripcion: 'Tierna pechuga de pollo rellena de verduras y especias, enrollada y cocida a la perfección, servida con nuestra exclusiva salsa de ostión. Un plato que destaca por su presentación y sabor.',
     ingredientes: [
