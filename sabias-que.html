@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
+  <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="animations.css">
+  <title>¿Sabías que? - Chifa El Punto</title>
+</head>
+<body>
+  <!-- Navegación -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="index.html">inicio</a></li>
+      <li><a href="sabias-que.html" class="active">¿sabías que?</a></li>
+      <li><a href="menu.html">menú</a></li>
+      <li><a href="contacto.html">contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="sabias-que" class="sabias-que">
+      <div class="contenedor">
+        <div class="imagen-container">
+          <img src="imagenes/comida.jpg" alt="Platos chifa" class="imagen-chifa" />
+        </div>
+        <div class="texto">
+          <h2><i class="fas fa-lightbulb"></i> ¿Sabías que...?</h2>
+          <div class="datos">
+            <div class="dato-item">
+              <i class="fas fa-utensils"></i>
+              <p><strong>"Taypá"</strong> es una palabra que nació en los chifas limeños y significa "porción generosa".</p>
+            </div>
+            <div class="dato-item">
+              <i class="fas fa-dumpling"></i>
+              <p>El wantán frito es el dumpling peruano por excelencia: crujiente por fuera, jugoso por dentro y acompañado de nuestra exclusiva salsa agridulce.</p>
+            </div>
+            <div class="dato-item">
+              <i class="fas fa-globe-americas"></i>
+              <p>La cocina chifa peruana es tan especial que ya tiene presencia en más de 50 países, desde EE.UU. y Japón hasta Europa y Australia.</p>
+            </div>
+            <div class="dato-item">
+              <i class="fas fa-history"></i>
+              <p>El chifa llegó al Perú a mediados del siglo XIX con los inmigrantes chinos, quienes adaptaron sus recetas a los ingredientes locales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="cita-final">
+      <i class="fas fa-quote-left"></i>
+      <p>"La cocina chifa no solo alimenta el cuerpo, también cuenta la historia de dos mundos que se fundieron en un solo wok, creando una experiencia única que conquistó al Perú y al mundo."</p>
+      <div class="autor">- Chef Li Wong</div>
+    </div>
+    </section>
+  </div>
+
+  <!-- Carrito Flotante -->
+  <div class="carrito-flotante" id="carritoFlotante">
+    <div class="carrito-icono" id="carritoIcono" draggable="true">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="carrito-contador" id="carritoContador">0</span>
+    </div>
+    <div class="carrito-contenido" id="carritoContenido">
+      <div class="carrito-cabecera">
+        <h3>Tu Pedido</h3>
+        <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+      </div>
+      <div class="carrito-items" id="carritoItems">
+        <p class="carrito-vacio">Tu carrito está vacío</p>
+      </div>
+      <div class="carrito-total">
+        <span>Total:</span>
+        <span class="total-precio" id="totalPrecio">S/ 0.00</span>
+      </div>
+      <button class="btn-pagar" id="btnPagar">Ver Carrito</button>
+    </div>
+  </div>
+
+  <!-- Footer y scripts pueden ir aquí -->
+  <script src="js/carrito.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
+  <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="animations.css">
+  <title>Contacto - Chifa El Punto</title>
+</head>
+<body>
+  <!-- Navegación -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="index.html">inicio</a></li>
+      <li><a href="sabias-que.html">¿sabías que?</a></li>
+      <li><a href="menu.html">menú</a></li>
+      <li><a href="contacto.html" class="active">contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+     <section id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¡Escríbenos y te responderemos a la brevedad!</p>
+    <!-- ================= Formulario ================= -->
+    <form class="contact-form">
+      <h3>Envíanos un mensaje</h3>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Mensaje:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+    <!-- ================= Delivery tabla ================= -->
+    <div class="delivery-section">
+      <h3>Zonas de Delivery</h3>
+      <p>Realizamos envíos a los siguientes distritos:</p>
+      
+      <div class="table-container">
+        <table class="delivery-table">
+          <thead>
+            <tr>
+              <th>Distrito</th>
+              <th>Tiempo de Entrega</th>
+              <th>Costo de Envío</th>
+              <th>Mínimo de Pedido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Villa El Salvador</td>
+              <td>30-40 min</td>
+              <td>S/ 5.00</td>
+              <td>S/ 30.00</td>
+            </tr>
+            <tr>
+              <td>Villa María del Triunfo</td>
+              <td>35-45 min</td>
+              <td>S/ 6.00</td>
+              <td>S/ 35.00</td>
+            </tr>
+            <tr>
+              <td>Pachacámac</td>
+              <td>40-55 min</td>
+              <td>S/ 8.00</td>
+              <td>S/ 40.00</td>
+            </tr>
+            <tr>
+              <td>Lurín</td>
+              <td>45-60 min</td>
+              <td>S/ 10.00</td>
+              <td>S/ 50.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="delivery-note">
+        <p class="delivery-note__item">
+          <span class="delivery-note__asterisk">*</span>
+          <span class="delivery-note__text">Los tiempos de entrega son aproximados y pueden variar según el tráfico y condiciones climáticas.</span>
+        </p>
+        <p class="delivery-note__item">
+          <span class="delivery-note__asterisk">**</span>
+          <span class="delivery-note__text">Para pedidos fuera de estas zonas, contáctanos directamente para evaluar disponibilidad y costos adicionales.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+      
+      <div class="mapa">
+        <h3>Encuéntranos</h3>
+        <div class="mapa-contenedor">
+          <!-- Aquí iría el iframe de Google Maps -->
+          <div class="mapa-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>Ubicación del restaurante en el mapa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Chifa El Punto</h3>
+        <p>La educación del sabor</p>
+        <p>© 2023 Chifa El Punto. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Carrito Flotante -->
+  <div class="carrito-flotante" id="carritoFlotante">
+    <div class="carrito-icono" id="carritoIcono" draggable="true">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="carrito-contador" id="carritoContador">0</span>
+    </div>
+    <div class="carrito-contenido" id="carritoContenido">
+      <div class="carrito-cabecera">
+        <h3>Tu Pedido</h3>
+        <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+      </div>
+      <div class="carrito-items" id="carritoItems">
+        <p class="carrito-vacio">Tu carrito está vacío</p>
+      </div>
+      <div class="carrito-total">
+        <span>Total:</span>
+        <span class="total-precio" id="totalPrecio">S/ 0.00</span>
+      </div>
+      <button class="btn-pagar" id="btnPagar">Ver Carrito</button>
+    </div>
+  </div>
+
+  <script src="js/carrito.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

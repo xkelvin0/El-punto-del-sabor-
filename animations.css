@@ -1,0 +1,462 @@
+/* ===== ANIMACIONES DE ENTRADA ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== ANIMACIONES DE RELOJ ===== */
+@keyframes rotateHourHand {
+  from { transform: rotate(0deg); transform-origin: 50% 50%; }
+  to { transform: rotate(360deg); transform-origin: 50% 50%; }
+}
+
+@keyframes rotateMinuteHand {
+  from { transform: rotate(0deg); transform-origin: 50% 50%; }
+  to { transform: rotate(360deg); transform-origin: 50% 50%; }
+}
+
+/* Aplicar animaciones a las manecillas */
+.hour-hand {
+  animation: rotateHourHand 12s linear infinite;
+}
+
+.minute-hand {
+  animation: rotateMinuteHand 6s linear infinite;
+}
+
+/* ===== ANIMACIONES DE HOVER ===== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ===== ANIMACIONES DE ENTRADA ===== */
+/* Logo y título principal */
+.Inicio .overlap-group {
+  animation: zoomIn 1s ease-out forwards;
+}
+
+/* Lema principal */
+.slogan {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* Barra de navegación */
+.navbar {
+  animation: slideInDown 0.8s ease-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Elementos de navegación */
+.nav-list {
+  position: relative;
+}
+
+.nav-list li {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: calc(var(--delay, 0) * 0.1s + 0.5s);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-list a {
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ffd700;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-list a:hover::after {
+  width: 80%;
+}
+
+.nav-list a:hover {
+  color: #ffd700;
+}
+
+/* Sección Lema */
+.lema p {
+  animation: fadeIn 1s ease-out 0.6s both;
+  position: relative;
+}
+
+.lema p::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #df9d05;
+  transition: width 0.5s ease;
+}
+
+.lema p:hover::after {
+  width: 100%;
+}
+
+/* Tarjetas del menú */
+.card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: calc(var(--delay, 0) * 0.1s);
+  transform-origin: center bottom;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card:hover::before {
+  transform: translateX(100%);
+}
+
+.card img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Efecto de etiqueta "Nuevo" */
+.nuevo-badge {
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background: #ff4757;
+  color: white;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover .nuevo-badge {
+  right: -25px;
+  background: #ff6b81;
+}
+
+/* Botones */
+button, .precio-comprar button {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #c00, #a00, #c00);
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+button::before, .precio-comprar button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+button:hover, .precio-comprar button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-position: right center;
+  animation: shine 1.5s infinite;
+  color: #fff;
+}
+
+button:hover::before, .precio-comprar button:hover::before {
+  transform: translateX(100%);
+}
+
+button:active, .precio-comprar button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: none;
+}
+
+/* Efecto de éxito al hacer clic */
+@keyframes buttonSuccess {
+  0% { background-color: #4CAF50; }
+  50% { transform: scale(0.95); }
+  100% { background-color: #c00; transform: scale(1); }
+}
+
+button.success, .precio-comprar button.success {
+  animation: buttonSuccess 0.5s ease-in-out forwards;
+}
+
+/* Botón flotante para volver arriba */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #a00;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto de ondas al hacer clic en botones */
+button::after, .precio-comprar button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 10.01%) no-repeat 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+button:active::after, .precio-comprar button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Imágenes */
+img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+  transform-origin: center;
+}
+
+img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* Sección de contacto */
+.contact-form {
+  animation: slideInLeft 0.8s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateX(5px);
+}
+
+.contact-info {
+  animation: slideInRight 0.8s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateX(-5px);
+}
+
+/* Efecto de carga para imágenes */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Aplicar efecto de carga solo a imágenes que no sean el logo */
+img:not(.overlap-group img) {
+  background: #f6f7f8;
+  background: linear-gradient(to right, #f6f7f8 0%, #e9e9e9 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Asegurar que el logo no tenga fondo */
+.overlap-group img {
+  background: transparent !important;
+  animation: none !important;
+}
+
+/* Animación para el footer */
+footer {
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+/* Efecto de scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Efecto de carga para la página */
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+body {
+  animation: fadeInPage 0.8s ease-out;
+}
+
+img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* Animación para el menú de navegación */
+.nav-list a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffd6c2;
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+/* Animación para el footer */
+footer {
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+/* Efecto de carga suave */
+body {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Animación para los precios */
+.precio-comprar span {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .precio-comprar span {
+  transform: scale(1.1);
+  color: #c00;
+}

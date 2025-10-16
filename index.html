@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Define el idioma de la página como español -->
+
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8"> <!-- Permite usar acentos y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsive -->
+
+  <!-- Importación de fuentes desde Google Fonts -->
+    <!-- Font Awesome para los iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
+  <link rel="icon" href="imagenes/logo2.png" type="image/png">
+
+  <!-- Enlaces a las hojas de estilo CSS -->
+
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="animations.css">
+
+  <!-- Título de la pestaña del navegador -->
+  <title>Chifa El Punto</title> 
+</head>
+
+<body>
+
+  <!-- ================= SECCIÓN DE INICIO ================= -->
+  <section id="inicio" class="Inicio" style="color: black !important;">
+    <!-- Logo + Nombre del restaurante -->
+    <div class="overlap-group">
+      <img src="imagenes/logo2.png" alt="Logo de Chifa El Punto"> <!-- Logo -->
+      <div class="text-wrapper" style="color: black !important;">Chifa El Punto</div> <!-- Nombre -->
+    </div>
+
+    <!-- Slogan del restaurante -->
+    <div class="slogan" style="color: black !important;">La educación del sabor</div>
+  </section>
+
+  <!-- ================= NAVEGACIÓN PRINCIPAL ================= -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="index.html" class="active">inicio</a></li>
+      <li><a href="sabias-que.html">¿sabías que?</a></li>
+      <li><a href="menu.html">menú</a></li>
+      <li><a href="contacto.html">contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================= SECCIÓN LEMA FAMILIAR ================= -->
+  <section class="lema-familiar">
+    <div class="container">
+      <p class="lema-texto">
+        Somos la familia "El Punto" venimos a ofrecerle los exquisitos platos de chifa con un sabor diferente al que está acostumbrado, ven y compruébalo. Todo en su "PUNTO"
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN PLATOS POPULARES ================= -->
+  <section class="popular-dishes">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nuestros Platos Destacados</h2>
+        <p>Los favoritos de nuestros clientes</p>
+      </div>
+      
+      <div class="dishes-grid">
+        <!-- Plato 1 -->
+        <div class="dish-card">
+          <div class="dish-badge">Más Vendido</div>
+          <img src="imagenes/arrozchaufa.jpg" alt="Arroz Chaufa" class="dish-image">
+          <div class="dish-content">
+            <h3>Arroz Chaufa</h3>
+            <p>Delicioso arroz chaufa con pollo, huevo, cebollita china y toque especial de la casa.</p>
+            <div class="dish-footer">
+              <span class="price">S/ 18.00</span>
+              <button class="btn-order" onclick="window.location.href='producto-detalle.html?id=arroz-chaufa'">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Plato 2 -->
+        <div class="dish-card">
+          <div class="dish-badge">Recomendado</div>
+          <img src="imagenes/chijaukay.jpg" alt="Chijaukay" class="dish-image">
+          <div class="dish-content">
+            <h3>Chijaukay</h3>
+            <p>Pollo frito crujiente bañado en nuestra especial salsa de soya y ostión.</p>
+            <div class="dish-footer">
+              <span class="price">S/ 22.00</span>
+              <button class="btn-order" onclick="window.location.href='producto-detalle.html?id=chijaukay'">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Plato 3 -->
+        <div class="dish-card">
+          <div class="dish-badge">Especialidad</div>
+          <img src="imagenes/kamluwantan.jpg" alt="Kamlu Wantan" class="dish-image">
+          <div class="dish-content">
+            <h3>Kamlu Wantan</h3>
+            <p>Deliciosos wantanes fritos con pollo, chancho y verduras en salsa tamarindo.</p>
+            <div class="dish-footer">
+              <span class="price">S/ 24.00</span>
+              <button class="btn-order" onclick="window.location.href='producto-detalle.html?id=kamlu-wantan'">Ver Detalles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN DE PROMOCIONES ================= -->
+  <section class="promociones">
+    <div class="container">
+      <div class="section-header">
+        <h2>Promociones Especiales</h2>
+        <p>Aprovecha nuestras ofertas por tiempo limitado</p>
+      </div>
+      
+      <div class="promo-grid">
+        <!-- Promoción 1 -->
+        <div class="promo-card">
+          <div class="promo-badge">-15%</div>
+          <img src="imagenes/arrozchaufa.jpg" alt="Combo Chaufa Especial" class="promo-image">
+          <div class="promo-content">
+            <h3>Combo Chaufa Familiar</h3>
+            <p class="promo-desc">2 Arroces Chaufa + 1 Gaseosa 1.5L + 1 Porción de Wantanes</p>
+            <div class="promo-price">
+              <span class="original-price">S/ 52.00</span>
+              <span class="discounted-price">S/ 45.00</span>
+            </div>
+            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=arroz-chaufa'">Ver Detalles</button>
+            <div class="promo-timer">
+              <i class="far fa-clock"></i> Termina en: <span class="countdown">23:59:59</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promoción 2 -->
+        <div class="promo-card">
+          <div class="promo-badge">2x1</div>
+          <img src="imagenes/wantan.jpg" alt="Martes de Wantanes" class="promo-image">
+          <div class="promo-content">
+            <h3>Martes de Wantanes</h3>
+            <p class="promo-desc">Lleva 2 porciones de Wantanes por el precio de 1</p>
+            <div class="promo-price">
+              <span class="original-price">S/ 16.00</span>
+              <span class="discounted-price">S/ 8.00 c/u</span>
+            </div>
+            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=wantan-frito'">Ver Detalles</button>
+            <div class="promo-tag">Válido solo martes</div>
+          </div>
+        </div>
+
+        <!-- Promoción 3 -->
+        <div class="promo-card">
+          <div class="promo-badge">Combo</div>
+          <img src="imagenes/aeropuerto.jpg" alt="Combo Aeropuerto" class="promo-image">
+          <div class="promo-content">
+            <h3>Combo Aeropuerto</h3>
+            <p class="promo-desc">1 Aeropuerto + 1 Gaseosa Personal + 1 Porción de Siu Mai</p>
+            <div class="promo-price">
+              <span class="original-price">S/ 35.00</span>
+              <span class="discounted-price">S/ 28.00</span>
+            </div>
+            <button class="btn-promo" onclick="window.location.href='producto-detalle.html?id=aeropuerto'">Ver Detalles</button>
+            <div class="promo-tag">Oferta del día</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="wok-vector">
+          <svg width="80" height="80" viewBox="0 0 100 100" class="wok-svg">
+            <!-- Wok -->
+            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8"/>
+            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555"/>
+            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none"/>
+            <!-- Fideos -->
+            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
+            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
+            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
+            <!-- Vapor -->
+            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
+            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
+          </svg>
+        </div>
+        <h3>Chifa El Punto</h3>
+        <p>La mejor experiencia en comida chifa peruana con más de 10 años de tradición familiar.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/51926440741" aria-label="WhatsApp" target="_blank" class="social-icon">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3><i class="far fa-clock"></i> Horario de Atención</h3>
+        <p><i class="far fa-calendar-alt"></i> Lunes a Sábado: 10:00 AM - 10:00 PM</p>
+        <p><i class="fas fa-calendar-day"></i> Domingo: 11:00 AM - 9:00 PM</p>
+        <div class="opening-vector">
+          <svg width="100" height="60" viewBox="0 0 100 60" class="clock-svg">
+            <circle cx="50" cy="30" r="25" fill="none" stroke="#df9d05" stroke-width="3"/>
+            <circle cx="50" cy="30" r="2" fill="#df9d05"/>
+            <line x1="50" y1="30" x2="50" y2="15" stroke="#df9d05" stroke-width="3" stroke-linecap="round" class="hour-hand"/>
+            <line x1="50" y1="30" x2="65" y2="30" stroke="#df9d05" stroke-width="2" stroke-linecap="round" class="minute-hand"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3><i class="fas fa-address-card"></i> Contacto</h3>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-map-marker-alt"></i></span>
+          <span class="contact-text">Urbanización Pachacamac, Barrio 1, Mz E Lt 09, Villa El Salvador, Lima</span>
+        </p>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-phone"></i></span>
+          <a href="tel:+51926440741" class="contact-link">+51 926 440 741</a>
+        </p>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-envelope"></i></span>
+          <a href="mailto:delsaborelpunto22@gmail.com" class="contact-link">delsaborelpunto22@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Chifa El Punto. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+
+  <!-- Botón de Volver Arriba -->
+  <a href="#" class="back-to-top" aria-label="Volver arriba">
+    <span>↑</span>
+  </a>
+  
+  <!-- Reproductor de Audio -->
+  <div class="audio-player">
+    <button id="prevTrackBtn" aria-label="Canción anterior" class="control-btn">
+      <i class="fas fa-step-backward"></i>
+    </button>
+    <button id="playPauseBtn" aria-label="Reproducir/Pausar música" class="control-btn play-pause">
+      <i class="fas fa-play"></i>
+    </button>
+    <button id="nextTrackBtn" aria-label="Siguiente canción" class="control-btn">
+      <i class="fas fa-step-forward"></i>
+    </button>
+    <div class="track-info">
+      <div class="track-title">Música China Relajante</div>
+      <div class="track-time">0:00 / 0:00</div>
+      <select id="trackSelector" class="track-selector" aria-label="Seleccionar canción">
+        <option value="0">Música China Relajante 1</option>
+        <option value="1">Música China Tradicional</option>
+        <option value="2">Melodía China</option>
+        <option value="3">Té Verde Chino</option>
+      </select>
+    </div>
+    <div class="volume-control">
+      <button id="muteBtn" aria-label="Silenciar/Activar sonido" class="control-btn">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" aria-label="Control de volumen">
+    </div>
+    <audio id="bgMusic" loop>
+      <!-- Las fuentes de audio se cargarán dinámicamente desde JavaScript -->
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+  </div>
+
+  <!-- Carrito Flotante -->
+  <div class="carrito-flotante" id="carritoFlotante">
+    <div class="carrito-icono" id="carritoIcono" draggable="true">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="carrito-contador" id="carritoContador">0</span>
+    </div>
+    <div class="carrito-contenido" id="carritoContenido">
+      <div class="carrito-cabecera">
+        <h3>Tu Pedido</h3>
+        <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+      </div>
+      <div class="carrito-items" id="carritoItems">
+        <p class="carrito-vacio">Tu carrito está vacío</p>
+      </div>
+      <div class="carrito-total">
+        <span>Total:</span>
+        <span class="total-precio" id="totalPrecio">S/ 0.00</span>
+      </div>
+      <button class="btn-pagar" id="btnPagar">Ver Carrito</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/notificaciones.js"></script>
+  <script src="js/navegacion.js"></script>
+  <script src="js/busqueda.js"></script>
+  <script src="js/filtros.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/reproductor.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
