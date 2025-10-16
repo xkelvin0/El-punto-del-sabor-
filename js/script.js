@@ -38,9 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const backToTopBtn = document.querySelector('.back-to-top');
 
   if (backToTopBtn) {
-    // Mostrar/ocultar el botón según el scroll
+    // Función para determinar si mostrar el botón según la página
+    function shouldShowBackToTop() {
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      // Si la página cabe completamente en la ventana o es muy corta
+      if (documentHeight <= windowHeight + 100) {
+        return window.scrollY > 50; // Aparece con muy poco scroll
+      }
+
+      // Para páginas normales, mantener el comportamiento original
+      return window.scrollY > 300;
+    }
+
+    // Mostrar/ocultar el botón según el scroll y tamaño de página
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
+      if (shouldShowBackToTop()) {
         backToTopBtn.style.display = 'flex';
         backToTopBtn.style.opacity = '1';
         backToTopBtn.style.visibility = 'visible';
@@ -49,6 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
         backToTopBtn.style.visibility = 'hidden';
       }
     });
+
+    // Verificar inmediatamente al cargar la página
+    if (shouldShowBackToTop()) {
+      backToTopBtn.style.display = 'flex';
+      backToTopBtn.style.opacity = '1';
+      backToTopBtn.style.visibility = 'visible';
+    }
 
     // Funcionalidad del botón (aunque href="#" ya funciona)
     backToTopBtn.addEventListener('click', (e) => {

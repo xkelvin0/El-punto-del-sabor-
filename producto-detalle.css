@@ -599,12 +599,43 @@ body {
 }
 
 /* 📱 Responsivo */
+
+/* Tablets grandes (992px - 1200px) */
+@media (max-width: 1200px) {
+  .producto-detalle {
+    max-width: 1000px;
+    gap: 50px;
+  }
+
+  .producto-galeria {
+    flex: 1;
+    min-width: 400px;
+  }
+
+  .producto-info {
+    flex: 1;
+    min-width: 400px;
+  }
+}
+
+/* Tablets medianas (768px - 991px) */
 @media (max-width: 992px) {
   .producto-detalle {
     flex-direction: column;
     align-items: center;
     padding: 30px 20px;
     gap: 30px;
+    max-width: 100%;
+  }
+
+  .producto-galeria {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .producto-info {
+    width: 100%;
+    max-width: 600px;
   }
 
   .producto-info h1 {
@@ -629,6 +660,238 @@ body {
   .btn-favorito {
     width: 100%;
     margin: 0;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes (576px - 767px) */
+@media (max-width: 768px) {
+  .producto-detalle {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+
+  .producto-imagen {
+    height: 350px !important;
+  }
+
+  .producto-info h1 {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+
+  .producto-precio {
+    font-size: 1.4rem;
+    margin: 20px 0;
+  }
+
+  .producto-descripcion {
+    font-size: 0.95rem;
+    margin: 20px 0;
+  }
+
+  .producto-contador {
+    margin: 20px 0;
+    justify-content: center;
+  }
+
+  .producto-contador input {
+    width: 60px;
+    height: 40px;
+  }
+
+  .miniaturas-container {
+    min-height: 100px !important;
+    padding: 10px !important;
+  }
+
+  .miniatura {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+  }
+}
+
+/* Móviles pequeños (hasta 576px) */
+@media (max-width: 576px) {
+  .producto-detalle {
+    padding: 15px 10px;
+    gap: 20px;
+  }
+
+  .producto-imagen {
+    height: 300px !important;
+  }
+
+  .producto-info h1 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+
+  .producto-precio {
+    font-size: 1.3rem;
+    margin: 15px 0;
+  }
+
+  .producto-descripcion {
+    font-size: 0.9rem;
+    margin: 15px 0;
+  }
+
+  .producto-contador {
+    margin: 15px 0;
+  }
+
+  .producto-contador button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .producto-contador input {
+    width: 50px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .miniaturas-container {
+    min-height: 80px !important;
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .miniatura {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+  }
+
+  .btn-volver,
+  .btn-carrito,
+  .btn-favorito {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA NAVEGACIÓN EN PRODUCTO-DETALLE
+   ============================================ */
+
+/* Asegurar que la navegación sea completamente responsiva */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.nav-list {
+  position: relative;
+}
+
+/* Animaciones mejoradas para el menú hamburguesa */
+.menu-hamburguesa {
+  transition: all 0.3s ease;
+}
+
+.menu-hamburguesa.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.menu-hamburguesa.active i {
+  transform: rotate(180deg);
+}
+
+/* Responsive mejorado para navegación móvil */
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(139, 0, 0, 0.98);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .nav-list.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 2rem;
+  }
+
+  .nav-list a:last-child {
+    border-bottom: none;
+  }
+
+  .menu-hamburguesa {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-hamburguesa:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Tablets pequeñas */
+@media (max-width: 992px) {
+  .nav-list a {
+    font-size: 1.6rem;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .nav-list a {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .menu-hamburguesa {
+    font-size: 1.3rem;
+    padding: 0.4rem;
   }
 }
 }   
