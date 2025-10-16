@@ -743,19 +743,74 @@ body {
   margin: 0 auto;
 }
 
-/* Estilos base para la barra de navegación */
-.navbar {
-  background-color: #8B0000;
-  font-family: 'Rosarivo', serif;
+/* Estilos para el botón hamburguesa */
+.menu-hamburguesa {
+  display: none;
+  background: none;
+  border: none;
   color: white;
-  padding: 1.2rem 0;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu-hamburguesa:hover {
+  color: #ffd6c2;
+}
+
+/* Mostrar botón hamburguesa solo en móviles */
+@media (max-width: 768px) {
+  .menu-hamburguesa {
+    display: block;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(139, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 2rem;
+  }
+
+  .nav-list a:last-child {
+    border-bottom: none;
+  }
 }
 
 /* Lista horizontal sin viñetas */

@@ -3,8 +3,8 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const menuHamburguesa = document.querySelector('.menu-hamburguesa');
-    const navList = document.querySelector('.nav-list');
+    const menuHamburguesa = document.getElementById('menuToggle');
+    const navList = document.getElementById('navMenu');
 
     // Función para alternar el menú hamburguesa
     function toggleMenu() {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Cerrar menú al hacer clic en un enlace
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const navLinks = document.querySelectorAll('#navMenu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (navList.classList.contains('active')) {
