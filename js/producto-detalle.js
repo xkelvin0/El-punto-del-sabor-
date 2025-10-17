@@ -2,7 +2,7 @@
 const productos = {
   'wantan-frito': {
     nombre: 'Wantan Frito',
-    imagen: 'imagenes/wantanfrito.png',
+    imagen: 'imagenes/wantanfrito.jpeg',
     precio: 'S/ 8.00',
     descripcion: 'Crujientes wantanes fritos, rellenos de una mezcla jugosa de carne de cerdo y especias, acompañados de nuestra exclusiva salsa agridulce. Un clásico de la cocina chifa que no puede faltar en tu mesa (6 unidades).',
     ingredientes: [
@@ -19,7 +19,7 @@ const productos = {
   },
   'arroz-chaufa': {
     nombre: 'Arroz Chaufa',
-    imagen: 'imagenes/arrozchaufa.jpg',
+    imagen: 'imagenes/chaufa.jpeg',
     precio: 'S/ 15.00',
     descripcion: 'Tradicional arroz frito estilo chino-peruano preparado con huevo, cebolla china, ajo, jengibre, salsa de soya y trozos de pollo. Un clásico de la gastronomía chifa que no puede faltar.',
     ingredientes: [
@@ -37,7 +37,7 @@ const productos = {
   },
   'siu-mai': {
     nombre: 'Siu Mai',
-    imagen: 'imagenes/siumai.jpg',
+    imagen: 'imagenes/siumai.jpeg',
     precio: 'S/ 12.00',
     descripcion: 'Deliciosos bocaditos de carne de cerdo y camarones cocidos al vapor, envueltos en una fina masa de wantán. Una explosión de sabores en cada bocado (6 unidades).',
     ingredientes: [
@@ -187,7 +187,7 @@ const productos = {
       { nombre: 'Jengibre', alergenos: [] },
       { nombre: 'Salsa de soya', alergenos: ['gluten', 'soya'] },
       { nombre: 'Aceite de sésamo', alergenos: ['sésamo'] },
-      { nombre: 'Brotes de soya', alergenos: [] },
+      { nombre: 'Col china', alergenos: [] },
       { nombre: 'Cebollino picado', alergenos: [] }
     ],
     alérgenos: ['gluten', 'soya', 'mariscos', 'sésamo']
@@ -199,7 +199,7 @@ const productos = {
     descripcion: 'Una sopa espesa y cremosa preparada con caldo de pollo, huevo batido, finas tiras de pollo, champiñones y fideos chinos. Aderezada con un toque de vinagre y pimienta blanca.',
     ingredientes: [
       { nombre: 'Caldo de pollo', alergenos: [] },
-      { nombre: 'Huevo batido', alergenos: ['huevo'] },
+      { nombre: 'Huevo cocido', alergenos: ['huevo'] },
       { nombre: 'Pechuga de pollo en tiras', alergenos: [] },
       { nombre: 'Champiñones rebanados', alergenos: [] },
       { nombre: 'Fideos chinos', alergenos: ['gluten'] },
