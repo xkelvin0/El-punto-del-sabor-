@@ -1141,9 +1141,73 @@ footer {
   transition: all 0.3s ease;
 }
 
-#volumeSlider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-  background: #ffc107;
+/* Estilos responsivos para el reproductor de audio */
+@media (max-width: 768px) {
+  .audio-player {
+    padding: 8px 15px;
+    gap: 10px;
+    max-width: calc(100% - 40px); /* Más espacio en móviles */
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .audio-player .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .track-info {
+    min-width: 100px;
+  }
+
+  .track-title {
+    font-size: 0.8rem;
+  }
+
+  .track-time {
+    font-size: 0.6rem;
+  }
+
+  .volume-control {
+    gap: 5px;
+  }
+
+  #volumeSlider {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .audio-player {
+    padding: 6px 10px;
+    gap: 8px;
+    max-width: calc(100% - 20px);
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .audio-player .control-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .track-info {
+    min-width: 80px;
+  }
+
+  .track-title {
+    font-size: 0.7rem;
+  }
+
+  .track-time {
+    font-size: 0.5rem;
+  }
+
+  #volumeSlider {
+    width: 50px;
+  }
 }
 
 /* Estilos para funcionalidad de búsqueda y filtros */

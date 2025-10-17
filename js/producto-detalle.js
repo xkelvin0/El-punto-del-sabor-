@@ -55,7 +55,7 @@ const productos = {
   },
   'aeropuerto': {
     nombre: 'Aeropuerto',
-    imagen: 'imagenes/aeropuerto.jpg',
+    imagen: 'imagenes/aeropuerto.png',
     precio: 'S/ 18.00',
     descripcion: 'La combinación perfecta de arroz chaufa y tallarín saltado en un mismo plato. Un festín de sabores y texturas que te hará volar de placer.',
     ingredientes: [
@@ -75,7 +75,7 @@ const productos = {
   },
   'chaufa-carne': {
     nombre: 'Chaufa de Carne',
-    imagen: 'imagenes/chaufacarne.jpg',
+    imagen: 'imagenes/chaufacarne.png',
     precio: 'S/ 18.00',
     descripcion: 'Nuestro exquisito arroz chaufa preparado con tiernos trozos de lomo fino, huevo, cebolla china y un toque de ajonjolí. Una versión mejorada del clásico chaufa con el sabor único de la carne de res.',
     ingredientes: [
@@ -132,7 +132,7 @@ const productos = {
   },
   'kamlu-wantan': {
     nombre: 'Kamlu Wantan',
-    imagen: 'imagenes/kamluwantan.jpg',
+    imagen: 'imagenes/kamluwantan.png',
     precio: 'S/ 24.00',
     descripcion: 'Deliciosos wantanes fritos acompañados de una mezcla de pollo, cerdo y verduras en una irresistible salsa tamarindo. Un plato que equilibra perfectamente lo dulce y lo salado.',
     ingredientes: [
@@ -174,7 +174,7 @@ const productos = {
   },
   'sopa-wantan': {
     nombre: 'Sopa Wantan',
-    imagen: 'imagenes/sopawantan.jpg',
+    imagen: 'imagenes/sopawantan.png',
     precio: 'S/ 12.00',
     descripcion: 'Una reconfortante sopa de origen chino que combina caldo de pollo casero con jugosos wantanes rellenos de carne de cerdo y especias. Acompañada de finas láminas de cebolla china y brotes de soya.',
     ingredientes: [
@@ -194,7 +194,7 @@ const productos = {
   },
   'sopa-fuchifu': {
     nombre: 'Sopa Fuchifu',
-    imagen: 'imagenes/sopafuchifu.jpg',
+    imagen: 'imagenes/fuchifu.png',
     precio: 'S/ 15.00',
     descripcion: 'Una sopa espesa y cremosa preparada con caldo de pollo, huevo batido, finas tiras de pollo, champiñones y fideos chinos. Aderezada con un toque de vinagre y pimienta blanca.',
     ingredientes: [
@@ -215,7 +215,7 @@ const productos = {
   },
   'pollo-tipakay': {
     nombre: 'Pollo Tipakay',
-    imagen: 'imagenes/pollotipakay.png',
+    imagen: 'imagenes/tipakay.png',
     precio: 'S/ 22.00',
     descripcion: 'Crujientes trozos de pollo frito bañados en nuestra exclusiva salsa agridulce, acompañados de pimientos salteados y anacardos tostados.',
     ingredientes: [
@@ -238,7 +238,7 @@ const productos = {
   },
   'salvaje': {
     nombre: 'Salvaje',
-    imagen: 'imagenes/salvaje.jpg',
+    imagen: 'imagenes/salvaje.png',
     precio: 'S/ 18.00',
     descripcion: 'Versión especial del clásico arroz chaufa, preparado con una selección de verduras chinas salteadas al wok, huevo y mezcla secreta de especias.',
     ingredientes: [
@@ -260,7 +260,7 @@ const productos = {
   },
   'tallarin-saltado': {
     nombre: 'Tallarín Saltado',
-    imagen: 'imagenes/tallarinsaltado.png',
+    imagen: 'imagenes/saltado.jpg',
     precio: 'S/ 20.00',
     descripcion: 'Fideos chinos salteados al wok con pollo, carne de res, cebolla morada, tomate, ají amarillo y salsa de soya. Acompañado de papas fritas por encima.',
     ingredientes: [
@@ -282,7 +282,7 @@ const productos = {
   },
   'tortilla-pollo': {
     nombre: 'Tortilla de Pollo',
-    imagen: 'imagenes/tortillapollo.jpg',
+    imagen: 'imagenes/tortillapollo.png',
     precio: 'S/ 22.00',
     descripcion: 'Arroz chaufa acompañado de una generosa porción de tortilla de huevo rellena de pollo, cebolla y tomate.',
     ingredientes: [
@@ -301,7 +301,7 @@ const productos = {
   },
   'tallarin-taypa': {
     nombre: 'Tallarín Taypa',
-    imagen: 'imagenes/taypa.jpg',
+    imagen: 'imagenes/taypa.png',
     precio: 'S/ 22.00',
     descripcion: 'Fideos salteados al wok con combinación de carnes y mariscos, verduras frescas y nuestra salsa especial taypa.',
     ingredientes: [
