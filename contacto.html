@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="animations.css">
   <title>Contacto - Chifa El Punto</title>
 </head>
-<body>
+<body class="contacto-page">
   <!-- Navegación -->
   <nav class="navbar">
     <button class="menu-hamburguesa" id="menuToggle" aria-label="Abrir menú">
@@ -42,8 +42,32 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
 
+      <label for="consulta">Tipo de consulta:</label>
+      <select id="consulta" name="consulta" required>
+        <option value="">Selecciona una opción</option>
+        <option value="general">Consulta general</option>
+        <option value="pedido">Información sobre pedidos</option>
+        <option value="delivery">Delivery y envíos</option>
+        <option value="reclamo">Reclamo o sugerencia</option>
+        <option value="evento">Eventos o catering</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="horario">Horario preferido para contacto:</label>
+      <div class="horario-options">
+        <label class="checkbox-label">
+          <input type="checkbox" name="horario" value="mañana"> Mañana (9:00 AM - 12:00 PM)
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="horario" value="tarde"> Tarde (12:00 PM - 6:00 PM)
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="horario" value="noche"> Noche (6:00 PM - 10:00 PM)
+        </label>
+      </div>
+
       <label for="message">Mensaje:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <textarea id="message" name="message" rows="5" required placeholder="Cuéntanos más detalles sobre tu consulta..."></textarea>
 
       <button type="submit">Enviar Mensaje</button>
     </form>
@@ -103,8 +127,129 @@
       </div>
     </div>
   </section>
-      
-      <div class="mapa">
+
+  <!-- Sección de Testimonios -->
+  <section class="testimonios">
+    <h3><i class="fas fa-star"></i> Lo que dicen nuestros clientes</h3>
+    <p class="testimonios-desc">La satisfacción de nuestros clientes es nuestra mayor recompensa. ¡Lee algunas reseñas reales!</p>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>María López</h4>
+          <p>"El mejor chifa de Villa El Salvador. Los wantanes son espectaculares y el servicio es impecable. ¡Volveré pronto!"</p>
+        </div>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <h4>Carlos Ramírez</h4>
+          <p>"Delivery rápido y comida deliciosa. El chaufa de chancho es mi favorito. Recomendado 100%."</p>
+        </div>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>Ana García</h4>
+          <p>"Ambiente familiar y platos auténticos. La sopa wantan es una delicia. ¡Gracias por la experiencia!"</p>
+        </div>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>Luis Mendoza</h4>
+          <p>"Precios justos y porciones generosas. El aeropuerto es perfecto para compartir. ¡Excelente atención!"</p>
+        </div>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>Sofia Herrera</h4>
+          <p>"Descubrí este chifa por recomendación y no me arrepiento. Todo fresco y sabroso. ¡Volveré con amigos!"</p>
+        </div>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="testimonio-avatar">
+          <div class="avatar-placeholder">
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="testimonio-content">
+          <div class="testimonio-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <h4>Jorge Silva</h4>
+          <p>"Calidad excepcional y precios accesibles. El tallarín taypa es una obra maestra. ¡Altamente recomendado!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mapa">
         <!-- =============================================
              MAPA CON UBICACIÓN EXACTA FIJADA
              =============================================
@@ -217,6 +362,28 @@
     <span>↑</span>
   </a>
 
+  <!-- Carrito Flotante -->
+  <div class="carrito-flotante" id="carritoFlotante">
+    <div class="carrito-icono" id="carritoIcono" draggable="true">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="carrito-contador" id="carritoContador">0</span>
+    </div>
+    <div class="carrito-contenido" id="carritoContenido">
+      <div class="carrito-cabecera">
+        <h3>Tu Pedido</h3>
+        <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+      </div>
+      <div class="carrito-items" id="carritoItems">
+        <p class="carrito-vacio">Tu carrito está vacío</p>
+      </div>
+      <div class="carrito-total">
+        <span>Total:</span>
+        <span class="total-precio" id="totalPrecio">S/ 0.00</span>
+      </div>
+      <button class="btn-pagar" id="btnPagar">Ver Carrito</button>
+    </div>
+  </div>
+
   <!-- Reproductor de Audio -->
   <div class="audio-player">
     <button id="prevTrackBtn" aria-label="Canción anterior" class="control-btn">
@@ -250,6 +417,7 @@
     </audio>
   </div>
 
+  <!-- Footer y scripts pueden ir aquí -->
   <script src="js/carrito.js"></script>
   <script src="js/navegacion.js"></script>
   <script src="js/reproductor.js"></script>
@@ -294,6 +462,18 @@
         btnDirecciones.addEventListener('click', function(e) {
           // Analytics o seguimiento opcional - Nueva ubicación exacta proporcionada
           console.log('Usuario solicitó direcciones usando ubicación exacta: https://maps.app.goo.gl/HjAbPw2rzsPnKbkv9');
+        });
+      }
+
+      // Funcionalidad para botón de volver arriba
+      const backToTopBtn = document.querySelector('.back-to-top');
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
       }
     });
