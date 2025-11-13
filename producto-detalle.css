@@ -184,18 +184,19 @@
 /* Estilos para miniaturas - Aplicado a todos los productos */
 .miniaturas-container {
   display: flex !important;
-  gap: 15px !important; /* Aumentado el espacio entre miniaturas */
-  margin: 20px 0 0 !important;
+  justify-content: center !important; /* Centra horizontalmente */
+  gap: 15px !important;
+  margin: 20px auto 0 !important; /* Centra el contenedor */
   overflow-x: auto !important;
   padding: 15px !important;
   scrollbar-width: thin !important;
   scrollbar-color: #d32f2f #f0f0f0 !important;
   align-items: center !important;
-  min-height: 120px !important; /* Aumentada la altura mínima */
+  min-height: 120px !important;
   background-color: #fff !important;
   border-radius: 10px !important;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
-  width: 100% !important;
+  max-width: 100% !important; /* Asegura que no se salga del contenedor */
   box-sizing: border-box !important;
   scroll-behavior: smooth !important;
 }
@@ -623,36 +624,45 @@ body {
   .producto-detalle {
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px;
-    gap: 30px;
+    padding: 25px 15px;
+    gap: 25px;
     max-width: 100%;
   }
 
   .producto-galeria {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
+    padding: 0 10px;
   }
 
   .producto-info {
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
+    padding: 0 10px;
   }
 
   .producto-info h1 {
     font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .producto-precio {
     font-size: 1.6rem;
+    text-align: center;
+    margin: 15px 0;
   }
 
   .producto-descripcion {
     font-size: 1rem;
+    text-align: justify;
+    line-height: 1.6;
   }
 
   .botones-accion {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 20px;
   }
 
   .btn-volver,
@@ -660,60 +670,22 @@ body {
   .btn-favorito {
     width: 100%;
     margin: 0;
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .producto-contador {
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .seccion-ingredientes {
+    margin: 20px 0;
   }
 }
 
 /* Tablets pequeñas y móviles grandes (576px - 767px) */
 @media (max-width: 768px) {
-  .producto-detalle {
-    padding: 20px 15px;
-    gap: 25px;
-  }
-
-  .producto-imagen {
-    height: 350px !important;
-  }
-
-  .producto-info h1 {
-    font-size: 1.6rem;
-    margin-bottom: 30px;
-  }
-
-  .producto-precio {
-    font-size: 1.4rem;
-    margin: 20px 0;
-  }
-
-  .producto-descripcion {
-    font-size: 0.95rem;
-    margin: 20px 0;
-  }
-
-  .producto-contador {
-    margin: 20px 0;
-    justify-content: center;
-  }
-
-  .producto-contador input {
-    width: 60px;
-    height: 40px;
-  }
-
-  .miniaturas-container {
-    min-height: 100px !important;
-    padding: 10px !important;
-  }
-
-  .miniatura {
-    width: 80px !important;
-    height: 80px !important;
-    min-width: 80px !important;
-    min-height: 80px !important;
-  }
-}
-
-/* Móviles pequeños (hasta 576px) */
-@media (max-width: 576px) {
   .producto-detalle {
     padding: 15px 10px;
     gap: 20px;
@@ -721,57 +693,156 @@ body {
 
   .producto-imagen {
     height: 300px !important;
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   .producto-info h1 {
-    font-size: 1.4rem;
-    margin-bottom: 25px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;
   }
 
   .producto-precio {
-    font-size: 1.3rem;
-    margin: 15px 0;
+    font-size: 1.5rem;
+    margin: 10px 0 15px;
+    text-align: center;
   }
 
   .producto-descripcion {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin: 15px 0;
+    line-height: 1.6;
+    text-align: justify;
   }
 
   .producto-contador {
-    margin: 15px 0;
+    margin: 15px auto;
+    justify-content: center;
   }
 
   .producto-contador button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 
   .producto-contador input {
     width: 50px;
     height: 35px;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .miniaturas-container {
-    min-height: 80px !important;
-    padding: 8px !important;
+    min-height: 90px !important;
+    padding: 10px 5px !important;
     gap: 8px !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .miniatura {
-    width: 60px !important;
-    height: 60px !important;
-    min-width: 60px !important;
-    min-height: 60px !important;
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+  
+  .miniatura:hover, .miniatura.activa {
+    border-color: #d32f2f;
+    transform: scale(1.05);
+  }
+}
+
+/* Móviles pequeños (hasta 576px) */
+@media (max-width: 576px) {
+  .producto-detalle {
+    padding: 10px 8px;
+    gap: 15px;
+  }
+
+  .producto-imagen {
+    height: 250px !important;
+    border-radius: 8px;
+  }
+
+  .producto-info h1 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .producto-precio {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .producto-descripcion {
+    font-size: 0.9rem;
+    margin: 12px 0;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .producto-contador {
+    margin: 12px auto;
+    justify-content: center;
+  }
+
+  .producto-contador button {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .producto-contador input {
+    width: 40px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .miniaturas-container {
+    min-height: 70px !important;
+    padding: 8px 5px !important;
+    gap: 6px !important;
+  }
+
+  .miniatura {
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px !important;
+    min-height: 55px !important;
+    border-radius: 6px;
+  }
+
+  .botones-accion {
+    gap: 8px;
   }
 
   .btn-volver,
   .btn-carrito,
   .btn-favorito {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 0.9rem;
+    border-radius: 6px;
+  }
+  
+  .seccion-ingredientes {
+    padding: 15px !important;
+  }
+  
+  .ingrediente-item {
+    padding: 6px 10px;
+    margin: 0 -8px;
+  }
+  
+  .ingrediente-check {
+    margin-right: 8px;
   }
 }
 
