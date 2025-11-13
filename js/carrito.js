@@ -277,7 +277,7 @@ function actualizarCarrito() {
     // Calcular total con promociones aplicadas
     let total = 0;
     carrito.forEach(item => {
-      let precioFinal = item.precio;
+      let precioFinal = 0;
       
       // Manejar promoción 2x1
       if (item.esPromo2x1) {
@@ -290,18 +290,24 @@ function actualizarCarrito() {
         const promo = promociones[item.id];
         if (promo) {
           if (promo.tipo === 'porcentaje') {
-            precioFinal = item.precio * (1 - promo.valor / 100);
+            precioFinal = item.precio * item.cantidad * (1 - promo.valor / 100);
           } else if (promo.tipo === '2x1') {
             // Para 2x1: por cada 2 items, pagar solo 1
             const pares = Math.floor(item.cantidad / 2);
             const individuales = item.cantidad % 2;
-            precioFinal = (pares * item.precio) + (individuales * item.precio);
+            precioFinal = (pares + individuales) * item.precio;
           } else if (promo.tipo === 'combo' && promo.descuento) {
-            precioFinal = item.precio - promo.descuento;
+            precioFinal = (item.precio - promo.descuento) * item.cantidad;
+          } else {
+            precioFinal = item.precio * item.cantidad;
           }
+        } else {
+          precioFinal = item.precio * item.cantidad;
         }
       }
 
+      // Redondear a 2 decimales para evitar errores de precisión
+      precioFinal = parseFloat(precioFinal.toFixed(2));
       total += precioFinal;
     });
 
@@ -338,13 +344,38 @@ function cambiarCantidad(id, action) {
     const item = carrito.find(item => item.id === id);
     if (!item) return;
 
-    if (action === 'increase') {
+    // Manejar promoción 2x1
+    if (item.esPromo2x1) {
+        if (action === 'increase') {
+            // Aumentar de 2 en 2 para mantener el 2x1
+            item.cantidad += 2;
+        } else if (action === 'decrease') {
+            // Disminuir de 2 en 2, pero no menos de 2 (mínimo de la promoción)
+            if (item.cantidad > 2) {
+                item.cantidad -= 2;
+            } else {
+                // Si es 2 o menos, eliminar el producto
+                eliminarDelCarrito(id);
+                return;
+            }
+        }
+    } else {
+        // Comportamiento normal para otros productos
+        if (action === 'increase') {
+            item.cantidad++;
+        } else if (action === 'decrease') {
+            if (item.cantidad > 1) {
+                item.cantidad--;
+            } else {
+                eliminarDelCarrito(id);
+                return;
+            }
+        }
+    }
+
+    // Si es promoción 2x1, asegurarse que la cantidad sea par
+    if (item.esPromo2x1 && item.cantidad % 2 !== 0) {
         item.cantidad++;
-    } else if (action === 'decrease' && item.cantidad > 1) {
-        item.cantidad--;
-    } else if (action === 'decrease' && item.cantidad === 1) {
-        eliminarDelCarrito(id);
-        return;
     }
 
     guardarCarrito();

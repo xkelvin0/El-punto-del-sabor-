@@ -6,6 +6,454 @@
    #7. MEDIA QUERIES - DISEÑO RESPONSIVO
    ============================================ */
 
+/* Estilos para la página de detalle de producto */
+@media (max-width: 1024px) {
+  .producto-detalle {
+    max-width: 100%;
+    padding: 20px 30px;
+    gap: 30px;
+  }
+  
+  .producto-galeria,
+  .producto-info {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .producto-detalle {
+    padding: 20px 15px;
+    gap: 25px;
+  }
+  
+  .producto-descripcion {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 15px 10px;
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .producto-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+  }
+  
+  .producto-precio {
+    font-size: 1.6rem;
+    margin: 20px 0 25px;
+    padding: 10px 15px;
+  }
+  
+  .botones-accion {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-carrito,
+  .btn-favorito,
+  .btn-volver {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Móviles (hasta 480px) */
+@media (max-width: 480px) {
+  .producto-descripcion {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 12px 8px;
+    margin: 15px 0 20px;
+  }
+  
+  .producto-info h1 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+  }
+  
+  .producto-precio {
+    font-size: 1.5rem;
+    margin: 15px 0 25px;
+    padding: 8px 15px;
+  }
+  
+  .producto-contador {
+    margin: 15px 0 25px;
+  }
+  
+  .producto-contador button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .producto-contador input {
+    width: 60px;
+    height: 40px;
+  }
+  
+  /* Botones de acción */
+  .botones-accion {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn-carrito,
+  .btn-favorito,
+  .btn-volver {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .btn-carrito i,
+  .btn-favorito i,
+  .btn-volver i {
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+}
+
+/* Móviles pequeños (hasta 400px) */
+@media (max-width: 400px) {
+  /* Reset de estilos para móviles */
+  * {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+  /* Asegurar que el viewport se maneje correctamente */
+  @-ms-viewport { width: device-width; }
+  @viewport { width: device-width; }
+  
+  html, body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Ajustes generales */
+  .producto-detalle {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Contenedor principal */
+  .producto-detalle {
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+
+  /* Galería de imágenes */
+  .producto-galeria {
+    width: 100% !important;
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+  }
+
+  .producto-imagen {
+    height: 200px !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  .miniaturas-container {
+    padding: 5px 2px !important;
+    margin: 0 !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .miniatura {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    margin: 0 3px !important;
+  }
+
+  /* Información del producto */
+  .producto-info {
+    padding: 0 8px 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    float: none !important;
+  }
+
+  /* Título */
+  .producto-info h1 {
+    font-size: 1.5rem !important;
+    margin: 8px 0 12px !important;
+    padding: 0 0 8px 0 !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+  }
+  
+  /* Descripción - Ajustes específicos para móviles */
+  .producto-descripcion {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+    padding: 10px 0 !important;
+    margin: 5px 0 12px !important;
+    text-align: left !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    letter-spacing: 0.01em !important;
+    word-spacing: 0.02em !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    float: none !important;
+    clear: both !important;
+  }
+  
+  /* Asegurar que los párrafos dentro de la descripción se ajusten */
+  /* Estilos para el texto dentro de la descripción */
+  .producto-descripcion p,
+  .producto-descripcion span,
+  .producto-descripcion div,
+  .producto-descripcion li {
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block !important;
+    float: none !important;
+    margin: 5px 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    word-spacing: 0.02em !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    letter-spacing: 0.01em !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Precio */
+  .producto-precio {
+    font-size: 1.3rem !important;
+    margin: 5px 0 10px !important;
+    padding: 8px 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  
+  /* Contador - Mejoras para móviles */
+  .producto-contador {
+    margin: 10px 0 15px !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+    padding: 0 5px !important;
+  }
+  
+  .producto-contador button {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.2rem !important;
+    border-radius: 8px !important;
+  }
+  
+  .producto-contador input {
+    width: 60px !important;
+    height: 40px !important;
+    font-size: 1.1rem !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+  }
+  
+  .producto-contador button {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 1.1rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .producto-contador input {
+    width: 50px !important;
+    height: 35px !important;
+    font-size: 1rem !important;
+    margin: 0 !important;
+    padding: 0 5px !important;
+    text-align: center !important;
+  }
+  
+  /* Botones de acción - Mejorados para móviles */
+  .botones-accion {
+    margin: 15px 0 10px !important;
+    gap: 10px !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 0 5px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .btn-carrito,
+  .btn-favorito,
+  .btn-volver {
+    width: 100% !important;
+    padding: 14px 12px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+    position: relative;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Estilos específicos para cada botón */
+  .btn-carrito {
+    background-color: #4CAF50 !important;
+    color: white !important;
+  }
+  
+  .btn-volver {
+    background-color: #f44336 !important;
+    color: white !important;
+  }
+  
+  .btn-favorito {
+    background-color: #fff !important;
+    color: #e91e63 !important;
+    border: 2px solid #e91e63 !important;
+  }
+  
+  .btn-favorito.activo {
+    background-color: #e91e63 !important;
+    color: white !important;
+  }
+  
+  /* Iconos */
+  .btn-carrito i,
+  .btn-favorito i,
+  .btn-volver i {
+    font-size: 1.2rem !important;
+    margin-right: 10px !important;
+    min-width: 20px !important;
+    text-align: center !important;
+  }
+  
+  /* Efecto de presión para móviles */
+  .btn-carrito:active,
+  .btn-favorito:active,
+  .btn-volver:active {
+    transform: scale(0.98) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+  }
+  
+  /* Efecto hover solo para dispositivos con mouse */
+  @media (hover: hover) {
+    .btn-carrito:hover,
+    .btn-favorito:hover,
+    .btn-volver:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+    }
+  }
+  
+  /* Sección de ingredientes */
+  .seccion-ingredientes {
+    padding: 12px 10px !important;
+    margin: 10px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .seccion-ingredientes h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .lista-ingredientes li {
+    padding: 8px 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ajustes para el contenedor de botones */
+  .botones-accion {
+    padding: 0 !important;
+  }
+
+  /* Asegurar que no haya desbordamiento horizontal */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Ajustes para el zoom indicator */
+  .zoom-indicator {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Ajustes para los botones de cantidad */
+  .cantidad-botones {
+    gap: 5px !important;
+  }
+  
+  .cantidad-btn {
+    padding: 2px 8px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .cantidad {
+    font-size: 0.9rem !important;
+    margin: 0 5px !important;
+  }
+}
+
 /* Pantallas medianas (tabletas) */
 @media (max-width: 1024px) {
   .contenedor {
@@ -216,8 +664,38 @@
 }
 
 @media (max-width: 480px) {
+  /* Estilos generales para móviles pequeños */
+  .search-container {
+    width: 90%;
+    margin: 10px auto;
+  }
+  
+  .filtro-categorias {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filtro-categorias button {
+    width: 100%;
+    margin: 2px 0;
+  }
+  
+  .price-filter {
+    padding: 0 15px;
+  }
+  
+  .price-inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .price-inputs .input-group {
+    width: 100%;
+  }
+
+  /* Estilos para el carrito flotante */
   .carrito-flotante {
-    bottom: 90px; /* Aún más arriba en móviles pequeños */
+    bottom: 90px;
     right: 20px;
   }
 
@@ -248,6 +726,91 @@
 
   .cantidad-btn {
     width: 16px;
+  }
+}
+
+/* Móviles muy pequeños (hasta 400px) */
+@media (max-width: 400px) {
+  .Inicio .text-wrapper {
+    font-size: 20px;
+  }
+  
+  .slogan {
+    font-size: 14px;
+  }
+  
+  .menu h2 {
+    font-size: 24px;
+  }
+  
+  .menu h3 {
+    font-size: 20px;
+  }
+  
+  .card {
+    margin: 0 10px;
+  }
+  
+  .card h4 {
+    font-size: 16px;
+  }
+  
+  .card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .precio-comprar span {
+    font-size: 14px;
+  }
+  
+  .precio-comprar button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .quote {
+    font-size: 14px !important;
+    padding: 0 15px;
+  }
+  
+  .price-slider-container {
+    margin: 15px 0 25px;
+  }
+  
+  .price-inputs .input-group {
+    font-size: 14px;
+  }
+  
+  .price-inputs input {
+    width: 60px;
+    padding: 5px;
+  }
+  
+  .carrito-flotante {
+    right: 10px;
+    bottom: 80px;
+  }
+  
+  .carrito-contenido {
+    width: 280px;
+    right: -15px;
+  }
+  
+  .carrito-item-detalles h4 {
+    font-size: 13px;
+  }
+  
+  .carrito-item-precio {
+    font-size: 12px;
+  }
+  
+  .carrito-total {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .cantidad-btn {
     height: 16px;
     font-size: 0.9rem;
   }

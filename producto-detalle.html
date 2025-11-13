@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Descubre los deliciosos platos de Chifa El Punto. Ingredientes frescos y sabores auténticos.">
+  <meta name="description"
+    content="Descubre los deliciosos platos de Chifa El Punto. Ingredientes frescos y sabores auténticos.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
@@ -17,6 +19,7 @@
   <link rel="stylesheet" href="producto-detalle.css">
   <title>Detalle del Producto - Chifa El Punto</title>
 </head>
+
 <body>
   <!-- ================= NAVEGACIÓN PRINCIPAL ================= -->
   <nav class="navbar">
@@ -48,12 +51,12 @@
       <h1 class="loading" style="width: 80%; height: 40px; margin-bottom: 20px;"></h1>
       <div class="producto-precio loading" style="width: 120px; height: 40px;"></div>
       <div class="producto-descripcion loading" style="width: 100%; height: 120px; margin: 20px 0;"></div>
-      
+
       <!-- Sección de Ingredientes y Alérgenos -->
       <div class="seccion-ingredientes-container">
         <!-- Los ingredientes se cargarán dinámicamente con JavaScript -->
       </div>
-      
+
       <div class="producto-contador">
         <button id="disminuir">-</button>
         <input type="number" id="cantidad" value="1" min="1">
@@ -80,22 +83,28 @@
         <div class="wok-vector">
           <svg width="80" height="80" viewBox="0 0 100 100" class="wok-svg">
             <!-- Wok -->
-            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8"/>
-            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555"/>
-            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none"/>
+            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8" />
+            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555" />
+            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none" />
             <!-- Fideos -->
-            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
-            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
-            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
+            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
             <!-- Vapor -->
-            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
-            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
+            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
+            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
           </svg>
         </div>
         <h3>Chifa El Punto</h3>
         <p>La mejor experiencia en comida chifa peruana con más de 10 años de tradición familiar.</p>
         <div class="social-links">
-          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank" class="social-icon">
+          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank"
+            class="social-icon">
             <i class="fab fa-facebook-f"></i>
           </a>
           <a href="https://wa.me/51926440741" aria-label="WhatsApp" target="_blank" class="social-icon">
@@ -110,10 +119,12 @@
         <p><i class="fas fa-calendar-day"></i> Domingo: 11:00 AM - 9:00 PM</p>
         <div class="opening-vector">
           <svg width="100" height="60" viewBox="0 0 100 60" class="clock-svg">
-            <circle cx="50" cy="30" r="25" fill="none" stroke="#df9d05" stroke-width="3"/>
-            <circle cx="50" cy="30" r="2" fill="#df9d05"/>
-            <line x1="50" y1="30" x2="50" y2="15" stroke="#df9d05" stroke-width="3" stroke-linecap="round" class="hour-hand"/>
-            <line x1="50" y1="30" x2="65" y2="30" stroke="#df9d05" stroke-width="2" stroke-linecap="round" class="minute-hand"/>
+            <circle cx="50" cy="30" r="25" fill="none" stroke="#df9d05" stroke-width="3" />
+            <circle cx="50" cy="30" r="2" fill="#df9d05" />
+            <line x1="50" y1="30" x2="50" y2="15" stroke="#df9d05" stroke-width="3" stroke-linecap="round"
+              class="hour-hand" />
+            <line x1="50" y1="30" x2="65" y2="30" stroke="#df9d05" stroke-width="2" stroke-linecap="round"
+              class="minute-hand" />
           </svg>
         </div>
       </div>
@@ -138,11 +149,6 @@
       <p>&copy; 2025 Chifa El Punto. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- Botón de Volver Arriba -->
-  <a href="#" class="back-to-top" aria-label="Volver arriba">
-    <span>↑</span>
-  </a>
 
   <!-- Reproductor de Audio -->
   <div class="audio-player">
@@ -177,12 +183,12 @@
     </audio>
   </div>
 
-  <script src="js/producto-detalle.js"></script>
-  <script src="js/carrito.js"></script>
-  <script src="js/navegacion.js"></script>
-  <script src="js/reproductor.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/carrito-producto.js"></script>
+  <script src="minified/producto-detalle.min.js"></script>
+  <script src="minified/carrito-producto.min.js"></script>
+  <script src="minified/notificaciones.min.js"></script>
+  <script src="minified/navegacion.min.js"></script>
+  <script src="minified/reproductor.min.js"></script>
+  <script src="minified/script.min.js"></script>
 </body>
-</html>
 
+</html>

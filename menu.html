@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="minified/animations.min.css">
   <title>Menú - Chifa El Punto</title>
 </head>
+
 <body>
   <!-- Navegación -->
   <nav class="navbar">
@@ -29,21 +31,21 @@
     </ul>
   </nav>
 
-   <!-- ================= SECCIÓN MENÚ ================= -->
+  <!-- ================= SECCIÓN MENÚ ================= -->
   <section id="menu" class="menu">
     <h2>Menú</h2>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar platos...">
       <i class="fas fa-search"></i>
     </div>
-    
+
     <div class="filter-buttons">
       <button class="filter-btn active" data-category="all">Todos</button>
       <button class="filter-btn" data-category="entradas">Entradas</button>
       <button class="filter-btn" data-category="platos">Platos de Fondo</button>
       <button class="filter-btn" data-category="sopas">Sopas</button>
     </div>
-    
+
     <!-- Filtro de precios con slider -->
     <div class="price-filter">
       <h4>Rango de precios: <span id="priceRange">S/ 0 - S/ 100</span></h4>
@@ -71,7 +73,7 @@
       tradición.”</p>
     <br><br>
     <div class="grid">
-      <div class="card" data-category="entradas">
+      <div class="card" data-category="entradas" data-price="8">
         <img src="imagenes/wantanfrito.jpeg" alt="Wantan frito">
         <h4>Wantan frito</h4>
         <p>Crujientes wantanes fritos, rellenos y acompañados de salsa agridulce (6 unidades).</p>
@@ -79,14 +81,14 @@
           <span>S/ 8.00</span>
           <button onclick="window.location.href='producto-detalle.html?id=wantan-frito'">Ver más detalles</button>
         </div>
-      </div>        
+      </div>
 
-      <div class="card" data-category="entradas">
+      <div class="card" data-category="entradas" data-price="10">
         <img src="imagenes/siumai.jpeg" alt="Siu mai">
         <h4>Siu mai</h4>
         <p>Bocaditos de carne de cerdo y camarones cocidos al vapor (6 unidades).</p>
         <div class="precio-comprar">
-          <span>S/ 12.00</span>
+          <span>S/ 10.00</span>
           <button onclick="window.location.href='producto-detalle.html?id=siu-mai'">Ver más detalles</button>
         </div>
       </div>
@@ -100,7 +102,7 @@
     <br><br>
 
     <div class="grid">
-      <div class="card" data-category="platos" >
+      <div class="card" data-category="platos" data-price="18">
         <img src="imagenes/chaufa.jpeg" alt="Arroz chaufa">
         <h4>Arroz chaufa</h4>
         <p>Clásico arroz frito con pollo, huevo y cebolla china.</p>
@@ -110,7 +112,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="18">
         <img src="imagenes/aeropuerto.png" alt="Aeropuerto">
         <h4>Aeropuerto</h4>
         <p>Combinación de arroz chaufa y tallarín saltado</p>
@@ -120,7 +122,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="18">
         <img src="imagenes/chaufacarne.png" alt="Arroz chaufa con carne">
         <h4>Arroz chaufa con carne</h4>
         <p>Delicioso arroz chaufa con trozos de carne de res.</p>
@@ -130,7 +132,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="20">
         <img src="imagenes/chaufachancho.jpeg" alt="Arroz chaufa de chancho">
         <h4>Arroz chaufa de chancho</h4>
         <p>Delicioso arroz chaufa con trozos de carne de chancho.</p>
@@ -140,7 +142,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="22">
         <img src="imagenes/chijaukai2.jpeg" alt="Chijaukay">
         <h4>Chijaukay</h4>
         <p>Pollo frito crujiente bañado en una salsa de soya y ostión.</p>
@@ -150,7 +152,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="24">
         <img src="imagenes/kamluwantan.png" alt="Kamlu Wantan">
         <h4>Kamlu Wantan</h4>
         <p>Wantanes fritos con pollo, chancho y verduras en salsa tamarindo.</p>
@@ -160,7 +162,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="24">
         <img src="imagenes/pollo enrollado.jpeg" alt="Pollo Enrollado">
         <h4>Pollo Enrollado</h4>
         <p>Pechuga de pollo enrollada, servida con salsa de ostión.</p>
@@ -170,7 +172,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="22">
         <img src="imagenes/tipakay.png" alt="Pollo Tipakay">
         <h4>Pollo Tipakay</h4>
         <p>Trozos de pollo frito bañados en una salsa agridulce.</p>
@@ -180,17 +182,17 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="18">
         <img src="imagenes/salvaje.png" alt="Salvaje">
         <h4>Salvaje</h4>
         <p>Delicioso arroz chaufa con verduras chinas.</p>
         <div class="precio-comprar">
           <span>S/ 18.00</span>
-          <button onclick="window.location.href='producto-detalle.html?id=salvaje'">Ver más detalles</button>    
+          <button onclick="window.location.href='producto-detalle.html?id=salvaje'">Ver más detalles</button>
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="20">
         <img src="imagenes/saltado.jpg" alt="Tallarín Saltado">
         <h4>Tallarín Saltado</h4>
         <p>Fideos saltados con pollo, carne y verduras.</p>
@@ -199,8 +201,8 @@
           <button onclick="window.location.href='producto-detalle.html?id=tallarin-saltado'">Ver más detalles</button>
         </div>
       </div>
-      
-      <div class="card" data-category="platos">
+
+      <div class="card" data-category="platos" data-price="22">
         <img src="imagenes/tortillapollo.png" alt="Tortilla de Pollo">
         <h4>Tortilla de Pollo</h4>
         <p>Arroz chaufa acompañado de tortilla de huevo con trozos de pollo y verduras.</p>
@@ -210,7 +212,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos">
+      <div class="card" data-category="platos" data-price="30">
         <img src="imagenes/taypa.png" alt="Tallarín Taypa">
         <h4>Tallarín Taypa</h4>
         <p>Fideos salteados con carnes y mariscos. Taypa total.</p>
@@ -219,7 +221,7 @@
           <button onclick="window.location.href='producto-detalle.html?id=tallarin-taypa'">Ver más detalles</button>
         </div>
       </div>
-    </div>  
+    </div>
     <br><br><br>
     <h3>Sopas</h3>
     <hr class="linea">
@@ -280,22 +282,28 @@
         <div class="wok-vector">
           <svg width="80" height="80" viewBox="0 0 100 100" class="wok-svg">
             <!-- Wok -->
-            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8"/>
-            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555"/>
-            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none"/>
+            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8" />
+            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555" />
+            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none" />
             <!-- Fideos -->
-            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
-            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
-            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round" class="noodles"/>
+            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
             <!-- Vapor -->
-            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
-            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" class="steam"/>
+            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
+            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
           </svg>
         </div>
         <h3>Chifa El Punto</h3>
         <p>La mejor experiencia en comida chifa peruana con más de 10 años de tradición familiar.</p>
         <div class="social-links">
-          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank" class="social-icon">
+          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank"
+            class="social-icon">
             <i class="fab fa-facebook-f"></i>
           </a>
           <a href="https://wa.me/51926440741" aria-label="WhatsApp" target="_blank" class="social-icon">
@@ -310,10 +318,12 @@
         <p><i class="fas fa-calendar-day"></i> Domingo: 11:00 AM - 9:00 PM</p>
         <div class="opening-vector">
           <svg width="100" height="60" viewBox="0 0 100 60" class="clock-svg">
-            <circle cx="50" cy="30" r="25" fill="none" stroke="#df9d05" stroke-width="3"/>
-            <circle cx="50" cy="30" r="2" fill="#df9d05"/>
-            <line x1="50" y1="30" x2="50" y2="15" stroke="#df9d05" stroke-width="3" stroke-linecap="round" class="hour-hand"/>
-            <line x1="50" y1="30" x2="65" y2="30" stroke="#df9d05" stroke-width="2" stroke-linecap="round" class="minute-hand"/>
+            <circle cx="50" cy="30" r="25" fill="none" stroke="#df9d05" stroke-width="3" />
+            <circle cx="50" cy="30" r="2" fill="#df9d05" />
+            <line x1="50" y1="30" x2="50" y2="15" stroke="#df9d05" stroke-width="3" stroke-linecap="round"
+              class="hour-hand" />
+            <line x1="50" y1="30" x2="65" y2="30" stroke="#df9d05" stroke-width="2" stroke-linecap="round"
+              class="minute-hand" />
           </svg>
         </div>
       </div>
@@ -338,11 +348,6 @@
       <p>&copy; 2025 Chifa El Punto. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- Botón de Volver Arriba -->
-  <a href="#" class="back-to-top" aria-label="Volver arriba">
-    <span>↑</span>
-  </a>
 
   <!-- Reproductor de Audio -->
   <div class="audio-player">
@@ -380,9 +385,10 @@
   <!-- Footer y scripts pueden ir aquí -->
   <script src="minified/busqueda.min.js"></script>
   <script src="minified/filtros.min.js"></script>
-  <script src="../El-punto-del-sabor-/js/carrito.js"></script>
+  <script src="minified/carrito.min.js"></script>
   <script src="minified/navegacion.min.js"></script>
   <script src="minified/reproductor.min.js"></script>
   <script src="minified/script.min.js"></script>
 </body>
+
 </html>
