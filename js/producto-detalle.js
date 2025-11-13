@@ -713,9 +713,28 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnFavorito = document.getElementById('btn-favorito');
   const btnCarrito = document.getElementById('btn-carrito');
   
+  // Verificar si los botones ya tienen event listeners para evitar duplicados
   if (btnDisminuir && btnAumentar && inputCantidad) {
-    btnDisminuir.addEventListener('click', () => actualizarCantidad(-1));
-    btnAumentar.addEventListener('click', () => actualizarCantidad(1));
+    // Eliminar cualquier event listener existente
+    const newDisminuir = btnDisminuir.cloneNode(true);
+    const newAumentar = btnAumentar.cloneNode(true);
+    
+    // Reemplazar los botones con clones para eliminar event listeners
+    btnDisminuir.parentNode.replaceChild(newDisminuir, btnDisminuir);
+    btnAumentar.parentNode.replaceChild(newAumentar, btnAumentar);
+    
+    // Agregar los nuevos event listeners
+    newDisminuir.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      actualizarCantidad(-1);
+    }, { once: false });
+    
+    newAumentar.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      actualizarCantidad(1);
+    }, { once: false });
     
     // Validar entrada manual
     inputCantidad.addEventListener('change', function() {
