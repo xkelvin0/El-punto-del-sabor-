@@ -302,7 +302,7 @@ const productos = {
   'tallarin-taypa': {
     nombre: 'Tallarín Taypa',
     imagen: 'imagenes/taypa.png',
-    precio: 'S/ 22.00',
+    precio: 'S/ 28.00',
     descripcion: 'Fideos salteados al wok con combinación de carnes y mariscos, verduras frescas y nuestra salsa especial taypa.',
     ingredientes: [
       { nombre: 'Fideos chinos', alergenos: ['gluten'] },

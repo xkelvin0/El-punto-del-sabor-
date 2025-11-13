@@ -1001,48 +1001,140 @@ body {
 
 @media (max-width: 425px) {
   .producto-detalle {
-    padding: 8px 0;
-    gap: 15px;
+    padding: 5px 0;
+    gap: 10px;
+    margin: 5px 0;
   }
 
   .producto-imagen {
-    height: 220px !important;
+    height: 200px !important;
+    border-radius: 8px !important;
   }
 
   .producto-info h1 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-
-  .producto-precio {
     font-size: 1.2rem;
-    margin: 6px 0 10px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    padding-bottom: 5px;
   }
-
-  .producto-descripcion {
-    font-size: 0.85rem;
+  
+  .producto-precio {
+    font-size: 1.3rem;
     margin: 8px 0;
+  }
+  
+  .producto-descripcion {
+    font-size: 0.9rem;
+    margin: 10px 0;
     line-height: 1.5;
   }
+  
+  .botones-accion {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+  }
+  
+  .btn-volver,
+  .btn-carrito,
+  .btn-favorito {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .producto-contador {
+    margin: 8px 0;
+  }
+  
+  .producto-contador button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .producto-contador input {
+    width: 40px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .miniaturas-container {
+    min-height: 60px !important;
+    padding: 5px !important;
+    gap: 5px !important;
+  }
+  
+  .miniatura {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+  }
+  
+  .seccion-ingredientes {
+    padding: 15px !important;
+    margin: 15px 0;
+  }
+  
+  .seccion-ingredientes h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .ingrediente-item {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+}
 
+/* Ajustes adicionales para pantallas muy pequeñas (menos de 375px) */
+@media (max-width: 375px) {
+  .producto-imagen {
+    height: 180px !important;
+  }
+  
+  .producto-info h1 {
+    font-size: 1.1rem;
+  }
+  
+  .producto-precio {
+    font-size: 1.2rem;
+  }
+  
+  .miniatura {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    min-height: 45px !important;
+  }
+  
+  .seccion-ingredientes {
+    padding: 12px !important;
+  }
+  
+  .ingrediente-item {
+    padding: 5px 6px;
+    font-size: 0.8rem;
+  }
+  
   /* Galería de miniaturas */
   .miniaturas-container {
-    min-height: 65px !important;
-    padding: 6px 2px !important;
-    gap: 4px !important;
+    min-height: 60px !important;
+    padding: 5px !important;
+    gap: 5px !important;
   }
 
   .miniatura {
-    width: 55px !important;
-    height: 55px !important;
-    min-width: 55px !important;
-    min-height: 55px !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
   }
 
   /* Contador */
   .producto-contador {
-    margin: 8px auto;
+    margin: 8px 0;
   }
 
   .producto-contador button {
@@ -1059,22 +1151,23 @@ body {
 
   /* Botones de acción */
   .botones-accion {
-    gap: 6px;
-    margin-top: 12px;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
   }
 
   .btn-volver,
   .btn-carrito,
   .btn-favorito {
-    padding: 10px 12px;
-    font-size: 0.85rem;
-    gap: 6px;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
   }
   
   /* Sección de ingredientes */
   .seccion-ingredientes {
-    padding: 10px !important;
-    min-width: 280px;
+    padding: 15px !important;
+    margin: 15px 0;
   }
   
   .seccion-ingredientes h3 {
