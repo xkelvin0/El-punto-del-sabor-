@@ -14,17 +14,46 @@ const promociones = {
 
 // Función para agregar producto al carrito
 function agregarAlCarrito(id, nombre, precio, imagen, cantidad = 1) {
-    const productoExistente = carrito.find(item => item.id === id);
+    // Verificar si es la promoción 2x1
+    const esPromo2x1 = nombre.toLowerCase().includes('martes de wantanes');
     
-    if (productoExistente) {
-        productoExistente.cantidad += cantidad;
+    // Si es la promoción 2x1, ajustar la cantidad y el precio
+    if (esPromo2x1) {
+        // Siempre agregar 2 unidades por el precio de 1
+        const productoExistente = carrito.find(item => item.id === id);
+        
+        if (productoExistente) {
+            // Si ya existe, incrementar en 2 (para mantener el 2x1)
+            productoExistente.cantidad += 2;
+        } else {
+            // Si no existe, agregar 2 unidades
+            carrito.push({ 
+                id, 
+                nombre: nombre + ' (2x1)', // Indicar que es promoción 2x1
+                precio: precio * 2, // Precio total por las 2 unidades
+                precioUnitario: precio, // Guardar el precio unitario para mostrar
+                imagen, 
+                cantidad: 2, // Siempre 2 unidades
+                esPromo2x1: true // Marcar como promoción 2x1
+            });
+        }
     } else {
-        carrito.push({ id, nombre, precio, imagen, cantidad });
+        // Comportamiento normal para otros productos
+        const productoExistente = carrito.find(item => item.id === id && !item.esPromo2x1);
+        
+        if (productoExistente) {
+            productoExistente.cantidad += cantidad;
+        } else {
+            carrito.push({ id, nombre, precio, imagen, cantidad });
+        }
     }
     
     guardarCarrito();
     actualizarContadorCarrito();
-    mostrarNotificacion(`${nombre} agregado al carrito`);
+    mostrarNotificacion(esPromo2x1 ? 
+        `¡Promoción 2x1 aplicada! 2x ${nombre} por S/ ${precio * 2}` : 
+        `${nombre} agregado al carrito`
+    );
 }
 
 // Función para guardar el carrito en localStorage
@@ -184,28 +213,49 @@ function actualizarCarrito() {
         itemElement.className = 'carrito-item';
 
         let precioFinal = item.precio;
-        const promo = promociones[item.id];
-
-        if (promo) {
-          if (promo.tipo === 'porcentaje') {
-            precioFinal = item.precio * (1 - promo.valor / 100);
-          } else if (promo.tipo === '2x1') {
-            const pares = Math.floor(item.cantidad / 2);
-            const individuales = item.cantidad % 2;
-            precioFinal = (pares * item.precio) + (individuales * item.precio);
-          } else if (promo.tipo === 'combo' && promo.descuento) {
-            precioFinal = item.precio - promo.descuento;
-          }
+        let mostrarCantidad = item.cantidad;
+        let mostrarPrecioUnitario = item.precio;
+        
+        // Manejar promoción 2x1
+        if (item.esPromo2x1) {
+            // Para la promoción 2x1, mostramos el precio unitario real
+            mostrarPrecioUnitario = item.precioUnitario || item.precio / 2;
+            // El precio final es el precio unitario por la cantidad de pares
+            const pares = Math.ceil(item.cantidad / 2);
+            precioFinal = mostrarPrecioUnitario * pares;
+            
+            // Si es un nuevo item 2x1, forzar a que sea par
+            if (item.cantidad % 2 !== 0) {
+                item.cantidad++;
+                guardarCarrito();
+            }
+        } 
+        // Manejar otras promociones
+        else {
+            const promo = promociones[item.id];
+            if (promo) {
+                if (promo.tipo === 'porcentaje') {
+                    precioFinal = item.precio * (1 - promo.valor / 100);
+                } else if (promo.tipo === '2x1') {
+                    const pares = Math.floor(item.cantidad / 2);
+                    const individuales = item.cantidad % 2;
+                    precioFinal = (pares * item.precio) + (individuales * item.precio);
+                } else if (promo.tipo === 'combo' && promo.descuento) {
+                    precioFinal = item.precio - promo.descuento;
+                }
+            }
         }
 
         itemElement.innerHTML = `
             <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-imagen">
             <div class="carrito-item-info">
-                <h4>${item.nombre}</h4>
-                <p class="precio">S/ ${precioFinal.toFixed(2)}</p>
+                <h4>${item.nombre} ${item.esPromo2x1 ? '<span class="etiqueta-promo"></span>' : ''}</h4>
+                ${item.esPromo2x1 ? 
+                  `<p class="precio">S/ ${precioFinal.toFixed(2)} <span class="precio-unitario">(2 x S/ ${mostrarPrecioUnitario.toFixed(2)})</span></p>` : 
+                  `<p class="precio">S/ ${precioFinal.toFixed(2)}</p>`}
                 <div class="cantidad-controls">
-                    <button class="cantidad-btn" data-action="decrease" data-id="${item.id}">-</button>
-                    <span class="cantidad">${item.cantidad}</span>
+                    <button class="cantidad-btn" data-action="decrease" data-id="${item.id}" ${item.esPromo2x1 && item.cantidad <= 2 ? 'disabled' : ''}>-</button>
+                    <span class="cantidad">${item.esPromo2x1 ? item.cantidad / 2 : item.cantidad} ${item.esPromo2x1 ? 'par/es' : ''}</span>
                     <button class="cantidad-btn" data-action="increase" data-id="${item.id}">+</button>
                 </div>
             </div>
@@ -218,22 +268,31 @@ function actualizarCarrito() {
     let total = 0;
     carrito.forEach(item => {
       let precioFinal = item.precio;
-      const promo = promociones[item.id];
-
-      if (promo) {
-        if (promo.tipo === 'porcentaje') {
-          precioFinal = item.precio * (1 - promo.valor / 100);
-        } else if (promo.tipo === '2x1') {
-          // Para 2x1: por cada 2 items, pagar solo 1
-          const pares = Math.floor(item.cantidad / 2);
-          const individuales = item.cantidad % 2;
-          precioFinal = (pares * item.precio) + (individuales * item.precio);
-        } else if (promo.tipo === 'combo' && promo.descuento) {
-          precioFinal = item.precio - promo.descuento;
+      
+      // Manejar promoción 2x1
+      if (item.esPromo2x1) {
+        const precioUnitario = item.precioUnitario || item.precio / 2;
+        const pares = Math.ceil(item.cantidad / 2);
+        precioFinal = precioUnitario * pares;
+      } 
+      // Manejar otras promociones
+      else {
+        const promo = promociones[item.id];
+        if (promo) {
+          if (promo.tipo === 'porcentaje') {
+            precioFinal = item.precio * (1 - promo.valor / 100);
+          } else if (promo.tipo === '2x1') {
+            // Para 2x1: por cada 2 items, pagar solo 1
+            const pares = Math.floor(item.cantidad / 2);
+            const individuales = item.cantidad % 2;
+            precioFinal = (pares * item.precio) + (individuales * item.precio);
+          } else if (promo.tipo === 'combo' && promo.descuento) {
+            precioFinal = item.precio - promo.descuento;
+          }
         }
       }
 
-      total += precioFinal * item.cantidad;
+      total += precioFinal;
     });
 
     totalPrecio.textContent = `S/ ${total.toFixed(2)}`;
