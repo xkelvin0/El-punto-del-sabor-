@@ -1056,6 +1056,161 @@ footer {
 }
 
 
+/* ============================================
+   ESTILOS PARA LA PÁGINA DE CONTACTO
+   ============================================ */
+
+/* Contenedor principal del formulario */
+.contacto-page #contacto {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el formulario */
+.contact-form {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form h3 {
+  color: #8B0000;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+.contact-form label {
+  display: block;
+  margin: 15px 0 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #8B0000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Estilos para los checkboxes de horario */
+.horario-options {
+  margin: 10px 0 20px;
+}
+
+.checkbox-label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Estilos para la sección de delivery */
+.delivery-section {
+  margin-top: 40px;
+  padding: 25px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.delivery-section h3 {
+  color: #8B0000;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+/* Estilos para la tabla de delivery */
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delivery-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.delivery-table th,
+.delivery-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.delivery-table th {
+  background-color: #8B0000;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.delivery-table tbody tr:hover {
+  background-color: #fff5f5;
+}
+
+/* Nota de delivery */
+.delivery-note {
+  background: #fff8f0;
+  border-left: 4px solid #ffa500;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.delivery-note__item {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.delivery-note__asterisk {
+  color: #ff6b00;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
 /* Hacer que el carrito flotante sea visible en la página de contacto */
 .contacto-page .carrito-flotante {
   opacity: 1 !important;

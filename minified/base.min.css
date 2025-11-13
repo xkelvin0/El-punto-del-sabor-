@@ -1,27 +1,45 @@
-*,
-::after,
-::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
+/* ============================================
+   BASE STYLES - GENERAL AND RESET
+   ============================================ */
+
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Imprima, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden;
-    background-color: #fff
+  font-family: 'Imprima', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
-*,
-::after,
-::before {
-    box-sizing: border-box
+/* Asegurar que los elementos no causen desbordamiento */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
+/* Estilos base para las secciones */
 section {
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #fff
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* Contenedor principal de la página */
+.main-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
