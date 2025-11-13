@@ -2,8 +2,13 @@
 // CARRITO DE COMPRAS
 // ============================================
 
-// Variables globales
-let carrito = [];
+// Asegurarse de que el carrito esté inicializado en el objeto window
+if (!window.carrito) {
+    window.carrito = [];
+}
+
+// Referencia local a la variable global
+let carrito = window.carrito;
 
 // Definir reglas de promociones
 const promociones = {
@@ -12,8 +17,13 @@ const promociones = {
   'combo-aeropuerto': { tipo: 'combo', descuento: 7, descripcion: 'Combo' } // S/ 35.00 - S/ 7.00 = S/ 28.00
 };
 
-// Función para agregar producto al carrito
-function agregarAlCarrito(id, nombre, precio, imagen, cantidad = 1) {
+// Función para agregar producto al carrito (disponible globalmente)
+window.agregarAlCarrito = function(id, nombre, precio, imagen, cantidad = 1) {
+    // Asegurarse de que el carrito esté inicializado
+    if (!window.carrito) {
+        window.carrito = [];
+        carrito = window.carrito;
+    }
     // Verificar si es la promoción 2x1
     const esPromo2x1 = nombre.toLowerCase().includes('martes de wantanes');
     
