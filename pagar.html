@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagar - Chifa El Punto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
+  <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="stylesheet" href="minified/base.min.css">
+  <link rel="stylesheet" href="minified/layout.min.css">
+  <link rel="stylesheet" href="minified/components.min.css">
+  <link rel="stylesheet" href="minified/responsive.min.css">
+  <link rel="stylesheet" href="minified/animations.min.css">
+  <style>
+    .pago-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pago-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .resumen-pedido, .formulario-pago {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .resumen-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .resumen-total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid #333;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .btn-pagar {
+      background-color: #df9d05;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-pagar:hover {
+      background-color: #c78e04;
+    }
+
+    .metodo-pago {
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .metodo-pago:hover {
+      border-color: #df9d05;
+      background: #fff9e6;
+    }
+
+    .tipo-entrega {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .opcion-entrega {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .opcion-entrega:hover {
+      border-color: #df9d05;
+      background: #fff9e6;
+    }
+
+    .opcion-entrega input[type="radio"] {
+      margin: 0;
+    }
+
+    .metodo-pago.activo {
+      border-color: #df9d05;
+      background: #fff9e6;
+    }
+
+    .metodo-pago i {
+      margin-right: 10px;
+      color: #df9d05;
+    }
+
+    @media (max-width: 768px) {
+      .pago-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ================= NAVEGACIÓN PRINCIPAL ================= -->
+  <nav class="navbar">
+    <button class="menu-hamburguesa" id="menuToggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-list" id="navMenu">
+      <li><a href="index.html">inicio</a></li>
+      <li><a href="sabias-que.html">¿sabías que?</a></li>
+      <li><a href="menu.html">menú</a></li>
+      <li><a href="contacto.html">contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="pago-container">
+    <h1><i class="fas fa-credit-card"></i> Finalizar Compra</h1>
+    <p>Revise su pedido y complete la información de pago</p>
+    
+    <div class="pago-grid">
+      <div class="resumen-pedido">
+        <h2>Resumen del Pedido</h2>
+        <div id="resumen-items">
+          <!-- Los ítems del carrito se cargarán aquí dinámicamente -->
+        </div>
+        <div class="resumen-total" id="total-pedido">
+          Total: S/ 0.00
+        </div>
+      </div>
+
+      <div class="formulario-pago">
+        <h2>Método de Pago</h2>
+        
+        <div class="metodo-pago activo" data-metodo="tarjeta">
+          <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
+        </div>
+        
+        <div class="metodo-pago" data-metodo="efectivo">
+          <i class="fas fa-money-bill-wave"></i> Pago en Efectivo
+        </div>
+        
+        <div class="metodo-pago" data-metodo="yape">
+          <i class="fas fa-mobile-alt"></i> Yape / Plin
+        </div>
+
+        <div id="form-tarjeta">
+          <div class="form-group">
+            <label for="numero-tarjeta">Número de Tarjeta</label>
+            <input type="text" id="numero-tarjeta" class="form-control" placeholder="1234 5678 9012 3456">
+          </div>
+          
+          <div class="form-group">
+            <label for="nombre-tarjeta">Nombre en la Tarjeta</label>
+            <input type="text" id="nombre-tarjeta" class="form-control" placeholder="Como aparece en la tarjeta">
+          </div>
+          
+          <div style="display: flex; gap: 1rem;">
+            <div class="form-group" style="flex: 1;">
+              <label>Vencimiento</label>
+              <input type="text" id="vencimiento" class="form-control" placeholder="MM/AA">
+            </div>
+            
+            <div class="form-group" style="flex: 1;">
+              <label>CVV</label>
+              <input type="text" id="cvv" class="form-control" placeholder="123">
+            </div>
+          </div>
+          
+          <div class="cuenta-empresa" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+            <h4 style="margin-top: 0; color: #1a4b8c; display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-university"></i> Datos de la Cuenta Empresarial
+            </h4>
+            <div style="margin-top: 10px; line-height: 1.6;">
+              <div><strong>Banco:</strong> Banco de Crédito del Perú</div>
+              <div><strong>Razón Social:</strong> CHIFA EL PUNTO S.A.C.</div>
+              <div><strong>RUC:</strong> 20123456789</div>
+              <div><strong>Cuenta Soles:</strong> 04-123-456789</div>
+              <div><strong>CCI:</strong> 018-123-1234567890-12</div>
+            </div>
+            <p style="margin: 10px 0 0 0; font-size: 0.85em; color: #666;">
+              <i class="fas fa-info-circle"></i> Puede realizar una transferencia a esta cuenta si lo prefiere.
+            </p>
+          </div>
+        </div>
+
+        <div id="form-efectivo" style="display: none;">
+          <div class="form-group">
+            <p>Puede pagar con efectivo al momento de la entrega. Asegúrese de tener el monto exacto.</p>
+          </div>
+        </div>
+
+        <div id="form-yape" style="display: none;">
+          <div class="form-group">
+            <p>Puede realizar el pago a nuestro número de teléfono: <strong>+51 936 726 266</strong></p>
+            <p>Envíe el comprobante al WhatsApp para confirmar su pago.</p>
+          </div>
+        </div>
+
+        <div id="form-transferencia" style="display: none;">
+          <div class="transferencia-bancaria">
+            <div class="banco-logo">
+              <i class="fas fa-university"></i>
+              <span>Banco de la Nación</span>
+            </div>
+            <div class="cuenta-info">
+              <div class="info-item">
+                <span class="info-label">Titular:</span>
+                <span class="info-value">CHIFA EL PUNTO S.A.C.</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Tipo de Cuenta:</span>
+                <span class="info-value">Corriente</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">N° de Cuenta:</span>
+                <span class="info-value">04-123-456789</span>
+                <button class="btn-copiar" data-copy="04-123-456789">
+                  <i class="far fa-copy"></i>
+                </button>
+              </div>
+              <div class="info-item">
+                <span class="info-label">CCI:</span>
+                <span class="info-value">018-123-1234567890-12</span>
+                <button class="btn-copiar" data-copy="018-123-1234567890-12">
+                  <i class="far fa-copy"></i>
+                </button>
+              </div>
+              <div class="info-note">
+                <i class="fas fa-info-circle"></i>
+                <p>Por favor, envíe el comprobante de transferencia al WhatsApp <strong>+51 936 726 266</strong> para confirmar su pago.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de Entrega</label>
+          <div class="tipo-entrega">
+            <label class="opcion-entrega">
+              <input type="radio" name="tipo-entrega" value="domicilio" checked>
+              <span>Envío a domicilio</span>
+            </label>
+            <label class="opcion-entrega">
+              <input type="radio" name="tipo-entrega" value="recogida">
+              <span>Recojo en tienda</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="grupo-direccion">
+          <div class="form-group">
+            <label for="direccion">Dirección de Entrega</label>
+            <input type="text" id="direccion" class="form-control" placeholder="Ingrese su dirección completa">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notas">Notas para la entrega (opcional)</label>
+          <textarea id="notas" class="form-control" rows="3" placeholder="Ej: Llamar antes de subir, timbre roto, etc."></textarea>
+        </div>
+
+        <button class="btn-pagar" id="confirmar-pago">
+          <i class="fas fa-check-circle"></i> Confirmar Pedido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="wok-vector">
+          <svg width="80" height="80" viewBox="0 0 100 100" class="wok-svg">
+            <ellipse cx="50" cy="75" rx="40" ry="15" fill="#333" opacity="0.8" />
+            <ellipse cx="50" cy="70" rx="35" ry="10" fill="#555" />
+            <path d="M15,70 Q50,20 85,70" stroke="#df9d05" stroke-width="2" fill="none" />
+            <path d="M25,65 Q40,40 55,65 T85,65" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M20,68 Q38,45 60,68 T90,68" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M30,62 Q45,50 65,62 T90,62" stroke="#f5d76e" stroke-width="3" fill="none" stroke-linecap="round"
+              class="noodles" />
+            <path d="M40,50 Q45,40 50,45 Q55,40 60,45" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
+            <path d="M60,40 Q65,30 70,35 Q75,30 80,35" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none"
+              class="steam" />
+          </svg>
+        </div>
+        <h3>Chifa El Punto</h3>
+        <p>La mejor experiencia en comida chifa peruana con más de 10 años de tradición familiar.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ChifaElpuntodelencuentro" aria-label="Facebook" target="_blank"
+            class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/51926440741" aria-label="WhatsApp" target="_blank" class="social-icon">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3><i class="far fa-clock"></i> Horario de Atención</h3>
+        <p><i class="far fa-calendar-alt"></i> Lunes a Sábado: 10:00 AM - 10:00 PM</p>
+        <p><i class="fas fa-calendar-day"></i> Domingo: 11:00 AM - 9:00 PM</p>
+      </div>
+
+      <div class="footer-section">
+        <h3><i class="fas fa-address-card"></i> Contacto</h3>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-map-marker-alt"></i></span>
+          <span class="contact-text">Urbanización Pachacamac, Barrio 1, Mz E Lt 09, Villa El Salvador, Lima</span>
+        </p>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-phone"></i></span>
+          <a href="tel:+51936726266" class="contact-link">+51 936 726 266</a>
+        </p>
+        <p class="contact-item">
+          <span class="icon-container"><i class="fas fa-envelope"></i></span>
+          <a href="mailto:delsaborelpunto22@gmail.com" class="contact-link">delsaborelpunto22@gmail.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Chifa El Punto. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Cargar el carrito desde localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+      // Manejar cambio entre envío y recogida
+      const tipoEntregaRadios = document.querySelectorAll('input[name="tipo-entrega"]');
+      const grupoDireccion = document.getElementById('grupo-direccion');
+      const direccionInput = document.getElementById('direccion');
+      
+      function actualizarVisibilidadDireccion() {
+        const tipoEntrega = document.querySelector('input[name="tipo-entrega"]:checked').value;
+        if (tipoEntrega === 'recogida') {
+          grupoDireccion.style.display = 'none';
+          direccionInput.required = false;
+        } else {
+          grupoDireccion.style.display = 'block';
+          direccionInput.required = true;
+        }
+      }
+      
+      tipoEntregaRadios.forEach(radio => {
+        radio.addEventListener('change', actualizarVisibilidadDireccion);
+      });
+      
+      // Inicializar visibilidad
+      actualizarVisibilidadDireccion();
+      
+      // Validación del formulario
+      document.getElementById('confirmar-pago').addEventListener('click', function(e) {
+        const tipoEntrega = document.querySelector('input[name="tipo-entrega"]:checked').value;
+        const direccion = direccionInput.value.trim();
+        
+        if (tipoEntrega === 'domicilio' && !direccion) {
+          e.preventDefault();
+          alert('Por favor ingrese una dirección de entrega');
+          return;
+        }
+        
+        // Aquí iría el resto de la lógica de validación y envío del formulario
+        // ...
+      });
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      const resumenItems = document.getElementById('resumen-items');
+      const totalPedido = document.getElementById('total-pedido');
+      
+      // Mostrar ítems del carrito
+      if (carrito.length === 0) {
+        resumenItems.innerHTML = '<p>No hay productos en el carrito</p>';
+      } else {
+        let total = 0;
+        resumenItems.innerHTML = '';
+        
+        carrito.forEach(item => {
+          // Ajustar cantidad para promoción 2x1
+          const cantidadMostrar = item.esPromo2x1 ? item.cantidad / 2 : item.cantidad;
+          const etiquetaCantidad = item.esPromo2x1 ? 'par(es)' : '';
+          const subtotal = item.esPromo2x1 ? (item.precio * cantidadMostrar) : (item.precio * item.cantidad);
+          total += subtotal;
+          
+          const itemElement = document.createElement('div');
+          itemElement.className = 'resumen-item';
+          itemElement.innerHTML = `
+            <div>
+              <strong>${item.nombre}${item.esPromo2x1 ? ' (2x1)' : ''}</strong>
+              <div>Cantidad: ${cantidadMostrar} ${etiquetaCantidad}</div>
+            </div>
+            <div>S/ ${subtotal.toFixed(2)}</div>
+          `;
+          resumenItems.appendChild(itemElement);
+        });
+        
+        totalPedido.textContent = `Total: S/ ${total.toFixed(2)}`;
+      }
+      
+      // Manejar cambio de método de pago
+      const metodosPago = document.querySelectorAll('.metodo-pago');
+      const formTarjeta = document.getElementById('form-tarjeta');
+      const formEfectivo = document.getElementById('form-efectivo');
+      const formYape = document.getElementById('form-yape');
+      
+      metodosPago.forEach(metodo => {
+        metodo.addEventListener('click', function() {
+          // Remover clase activa de todos los métodos
+          metodosPago.forEach(m => m.classList.remove('activo'));
+          // Agregar clase activa al método seleccionado
+          this.classList.add('activo');
+          
+          // Mostrar el formulario correspondiente
+          const metodoSeleccionado = this.getAttribute('data-metodo');
+          formTarjeta.style.display = 'none';
+          formEfectivo.style.display = 'none';
+          formYape.style.display = 'none';
+          
+          if (metodoSeleccionado === 'tarjeta') {
+            formTarjeta.style.display = 'block';
+          } else if (metodoSeleccionado === 'efectivo') {
+            formEfectivo.style.display = 'block';
+          } else if (metodoSeleccionado === 'yape') {
+            formYape.style.display = 'block';
+          }
+        });
+      });
+      
+      // Manejar el envío del formulario
+      document.getElementById('confirmar-pago').addEventListener('click', function() {
+        const direccion = document.getElementById('direccion').value.trim();
+        const metodoActivo = document.querySelector('.metodo-pago.activo').getAttribute('data-metodo');
+        
+        if (!direccion) {
+          alert('Por favor ingrese una dirección de entrega');
+          return;
+        }
+        
+        if (metodoActivo === 'tarjeta') {
+          // Validar datos de la tarjeta (simplificado)
+          const numTarjeta = document.getElementById('numero-tarjeta').value.trim();
+          const nombreTarjeta = document.getElementById('nombre-tarjeta').value.trim();
+          const vencimiento = document.getElementById('vencimiento').value.trim();
+          const cvv = document.getElementById('cvv').value.trim();
+          
+          if (!numTarjeta || !nombreTarjeta || !vencimiento || !cvv) {
+            alert('Por favor complete todos los datos de la tarjeta');
+            return;
+          }
+        }
+        
+        // Aquí iría la lógica para procesar el pago
+        alert('¡Pedido realizado con éxito! Pronto nos comunicaremos para confirmar su pedido.');
+        
+        // Limpiar el carrito
+        localStorage.removeItem('carrito');
+        
+        // Redirigir a la página de inicio
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>
