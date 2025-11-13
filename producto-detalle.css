@@ -378,21 +378,30 @@ body {
   padding: 20px 40px 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 40px;
   align-items: flex-start;
   background-color: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  flex: 1;
-  padding-right: 30px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+/* Contenedor de galería */
+.producto-galeria {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%;
+}
+
+/* Contenedor de información */
+.producto-info {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%;
+}
 
 .producto-info h1 {
   font-family: 'RocknRoll One', sans-serif;
@@ -685,10 +694,39 @@ body {
 }
 
 /* Tablets pequeñas y móviles grandes (576px - 767px) */
+@media (max-width: 992px) {
+  .producto-detalle {
+    padding: 20px 15px;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .producto-galeria, 
+  .producto-info {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 10px;
+  }
+  
+  .producto-imagen {
+    height: 400px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .producto-detalle {
     padding: 15px 10px;
-    gap: 20px;
+    gap: 25px;
+  }
+  
+  .producto-galeria, 
+  .producto-info {
+    padding: 0 5px;
+  }
+  
+  .producto-imagen {
+    height: 350px !important;
   }
 
   .producto-imagen {
@@ -924,6 +962,149 @@ body {
     font-size: 1rem;
   }
 }
+
+/* Pantallas muy pequeñas (hasta 425px) */
+@media (max-width: 576px) {
+  .producto-detalle {
+    padding: 10px 5px;
+    gap: 20px;
+    margin: 10px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .producto-galeria, 
+  .producto-info {
+    padding: 0 5px;
+  }
+  
+  .producto-imagen {
+    height: 280px !important;
+    border-radius: 8px !important;
+  }
+  
+  .producto-info h1 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .producto-precio {
+    font-size: 1.5rem;
+    margin: 15px 0;
+  }
+  
+  .producto-descripcion {
+    font-size: 1rem;
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .producto-detalle {
+    padding: 8px 0;
+    gap: 15px;
+  }
+
+  .producto-imagen {
+    height: 220px !important;
+  }
+
+  .producto-info h1 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .producto-precio {
+    font-size: 1.2rem;
+    margin: 6px 0 10px;
+  }
+
+  .producto-descripcion {
+    font-size: 0.85rem;
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  /* Galería de miniaturas */
+  .miniaturas-container {
+    min-height: 65px !important;
+    padding: 6px 2px !important;
+    gap: 4px !important;
+  }
+
+  .miniatura {
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px !important;
+    min-height: 55px !important;
+  }
+
+  /* Contador */
+  .producto-contador {
+    margin: 8px auto;
+  }
+
+  .producto-contador button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .producto-contador input {
+    width: 40px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  /* Botones de acción */
+  .botones-accion {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .btn-volver,
+  .btn-carrito,
+  .btn-favorito {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+  
+  /* Sección de ingredientes */
+  .seccion-ingredientes {
+    padding: 10px !important;
+    min-width: 280px;
+  }
+  
+  .seccion-ingredientes h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .ingrediente-item {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+  
+  .ingrediente-check {
+    margin-right: 8px;
+    min-width: 16px;
+    min-height: 16px;
+  }
+  
+  /* Tabla de alérgenos */
+  .alergeno-tag {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+  }
+  
+  /* Zoom en la imagen principal */
+  .zoom-indicator {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ============================================
@@ -1045,4 +1226,3 @@ body {
     padding: 0.4rem;
   }
 }
-}   
