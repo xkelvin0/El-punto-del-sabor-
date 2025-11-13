@@ -1,0 +1,12 @@
+{
+  "name": "el-punto-del-sabor",
+  "version": "1.0.0",
+  "description": "Minificación de archivos CSS y JS para El Punto del Sabor",
+  "scripts": {
+    "minify": "node minify.js"
+  },
+  "dependencies": {
+    "clean-css": "^5.3.2",
+    "terser": "^5.25.0"
+  }
+}
