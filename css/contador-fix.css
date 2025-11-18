@@ -1,0 +1,96 @@
+/* Estilos específicos para el contador de productos */
+
+/* Ajustes para pantallas normales (no móviles) */
+@media (min-width: 769px) {
+  /* Espaciado entre descripción y sección de ingredientes */
+  .producto-descripcion {
+    margin-bottom: 40px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+  
+  /* Sección de ingredientes en pantallas grandes */
+  .seccion-ingredientes-container {
+    margin: 40px 0 30px 0 !important;
+    padding-top: 25px !important;
+  }
+  
+  /* Estilo mejorado para la sección de ingredientes */
+  .seccion-ingredientes {
+    background-color: #f9f9f9 !important;
+    padding: 25px 30px !important;
+    border-radius: 12px !important;
+    margin: 15px 0 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+  }
+}
+
+.producto-contador {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 15px auto !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 200px !important;
+}
+
+.producto-contador button,
+.producto-contador input {
+  margin: 0 5px !important;
+}
+
+.producto-contador button {
+  width: 35px !important;
+  height: 35px !important;
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  background-color: #f5f5f5 !important;
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+.producto-contador input {
+  width: 50px !important;
+  height: 35px !important;
+  text-align: center !important;
+  font-size: 1rem !important;
+  padding: 0 !important;
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 4px !important;
+}
+
+/* Asegurar que los estilos se apliquen en móviles */
+@media (max-width: 768px) {
+  .producto-contador {
+    justify-content: center !important;
+    margin: 15px auto !important;
+    padding: 0 !important;
+  }
+  
+  /* Ajuste de espaciado entre descripción y sección de ingredientes */
+  .producto-descripcion {
+    margin-bottom: 30px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+  
+  /* Ajuste de margen superior para la sección de ingredientes */
+  .seccion-ingredientes-container {
+    margin: 30px 0 20px 0 !important;
+    padding-top: 20px !important;
+    border-top: 1px solid #f0f0f0 !important;
+  }
+  
+  /* Asegurar que el contenedor de ingredientes tenga un fondo claro */
+  .seccion-ingredientes {
+    background-color: #f9f9f9 !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+  }
+}

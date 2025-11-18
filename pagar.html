@@ -10,140 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
+  <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="minified/base.min.css">
   <link rel="stylesheet" href="minified/layout.min.css">
   <link rel="stylesheet" href="minified/components.min.css">
   <link rel="stylesheet" href="minified/responsive.min.css">
   <link rel="stylesheet" href="minified/animations.min.css">
-  <style>
-    .pago-container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .pago-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .resumen-pedido, .formulario-pago {
-      background: #f9f9f9;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #eee;
-    }
-
-    .resumen-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .resumen-total {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 2px solid #333;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    .btn-pagar {
-      background-color: #df9d05;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .btn-pagar:hover {
-      background-color: #c78e04;
-    }
-
-    .metodo-pago {
-      margin: 1rem 0;
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .metodo-pago:hover {
-      border-color: #df9d05;
-      background: #fff9e6;
-    }
-
-    .tipo-entrega {
-      display: flex;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .opcion-entrega {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .opcion-entrega:hover {
-      border-color: #df9d05;
-      background: #fff9e6;
-    }
-
-    .opcion-entrega input[type="radio"] {
-      margin: 0;
-    }
-
-    .metodo-pago.activo {
-      border-color: #df9d05;
-      background: #fff9e6;
-    }
-
-    .metodo-pago i {
-      margin-right: 10px;
-      color: #df9d05;
-    }
-
-    @media (max-width: 768px) {
-      .pago-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/pagar.css">
 </head>
 
 <body>
@@ -266,7 +141,7 @@
                 </button>
               </div>
               <div class="info-item">
-                <span class="info-label">CCI:</span>
+                Jueves de Wantanes <span class="etiqueta-promo">Jueves de Wantanes</span>
                 <span class="info-value">018-123-1234567890-12</span>
                 <button class="btn-copiar" data-copy="018-123-1234567890-12">
                   <i class="far fa-copy"></i>
@@ -277,6 +152,26 @@
                 <p>Por favor, envíe el comprobante de transferencia al WhatsApp <strong>+51 936 726 266</strong> para confirmar su pago.</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Datos del Cliente -->
+        <div class="datos-cliente" style="margin-top: 1.5rem;">
+          <h3>Datos del Cliente</h3>
+          
+          <div class="form-group">
+            <label for="nombre-cliente">Nombre Completo *</label>
+            <input type="text" id="nombre-cliente" class="form-control" placeholder="Ingrese su nombre completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" class="form-control" placeholder="9 dígitos" maxlength="9" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email (opcional)</label>
+            <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com">
           </div>
         </div>
 
@@ -374,144 +269,22 @@
     </div>
   </footer>
 
+  <script src="js/pagar.js"></script>
+
+  <!-- Scripts necesarios para funcionalidad del carrito -->
+  <script src="minified/carrito.min.js?v=1.0.1"></script>
+  <script src="minified/notificaciones.min.js?v=1.0.1"></script>
+  <script src="minified/navegacion.min.js?v=1.0.1"></script>
+  <script src="minified/script.min.js?v=1.0.1"></script>
+  <script src="js/pago-backend.js?v=2.6.0"></script>
   <script>
-    // Cargar el carrito desde localStorage
-    document.addEventListener('DOMContentLoaded', function() {
-      // Manejar cambio entre envío y recogida
-      const tipoEntregaRadios = document.querySelectorAll('input[name="tipo-entrega"]');
-      const grupoDireccion = document.getElementById('grupo-direccion');
-      const direccionInput = document.getElementById('direccion');
-      
-      function actualizarVisibilidadDireccion() {
-        const tipoEntrega = document.querySelector('input[name="tipo-entrega"]:checked').value;
-        if (tipoEntrega === 'recogida') {
-          grupoDireccion.style.display = 'none';
-          direccionInput.required = false;
-        } else {
-          grupoDireccion.style.display = 'block';
-          direccionInput.required = true;
-        }
-      }
-      
-      tipoEntregaRadios.forEach(radio => {
-        radio.addEventListener('change', actualizarVisibilidadDireccion);
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
       });
-      
-      // Inicializar visibilidad
-      actualizarVisibilidadDireccion();
-      
-      // Validación del formulario
-      document.getElementById('confirmar-pago').addEventListener('click', function(e) {
-        const tipoEntrega = document.querySelector('input[name="tipo-entrega"]:checked').value;
-        const direccion = direccionInput.value.trim();
-        
-        if (tipoEntrega === 'domicilio' && !direccion) {
-          e.preventDefault();
-          alert('Por favor ingrese una dirección de entrega');
-          return;
-        }
-        
-        // Aquí iría el resto de la lógica de validación y envío del formulario
-        // ...
-      });
-      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-      const resumenItems = document.getElementById('resumen-items');
-      const totalPedido = document.getElementById('total-pedido');
-      
-      // Mostrar ítems del carrito
-      if (carrito.length === 0) {
-        resumenItems.innerHTML = '<p>No hay productos en el carrito</p>';
-      } else {
-        let total = 0;
-        resumenItems.innerHTML = '';
-        
-        carrito.forEach(item => {
-          // Ajustar cantidad para promoción 2x1
-          const cantidadMostrar = item.esPromo2x1 ? item.cantidad / 2 : item.cantidad;
-          const etiquetaCantidad = item.esPromo2x1 ? 'par(es)' : '';
-          const subtotal = item.esPromo2x1 ? (item.precio * cantidadMostrar) : (item.precio * item.cantidad);
-          total += subtotal;
-          
-          const itemElement = document.createElement('div');
-          itemElement.className = 'resumen-item';
-          itemElement.innerHTML = `
-            <div>
-              <strong>${item.nombre}${item.esPromo2x1 ? ' (2x1)' : ''}</strong>
-              <div>Cantidad: ${cantidadMostrar} ${etiquetaCantidad}</div>
-            </div>
-            <div>S/ ${subtotal.toFixed(2)}</div>
-          `;
-          resumenItems.appendChild(itemElement);
-        });
-        
-        totalPedido.textContent = `Total: S/ ${total.toFixed(2)}`;
-      }
-      
-      // Manejar cambio de método de pago
-      const metodosPago = document.querySelectorAll('.metodo-pago');
-      const formTarjeta = document.getElementById('form-tarjeta');
-      const formEfectivo = document.getElementById('form-efectivo');
-      const formYape = document.getElementById('form-yape');
-      
-      metodosPago.forEach(metodo => {
-        metodo.addEventListener('click', function() {
-          // Remover clase activa de todos los métodos
-          metodosPago.forEach(m => m.classList.remove('activo'));
-          // Agregar clase activa al método seleccionado
-          this.classList.add('activo');
-          
-          // Mostrar el formulario correspondiente
-          const metodoSeleccionado = this.getAttribute('data-metodo');
-          formTarjeta.style.display = 'none';
-          formEfectivo.style.display = 'none';
-          formYape.style.display = 'none';
-          
-          if (metodoSeleccionado === 'tarjeta') {
-            formTarjeta.style.display = 'block';
-          } else if (metodoSeleccionado === 'efectivo') {
-            formEfectivo.style.display = 'block';
-          } else if (metodoSeleccionado === 'yape') {
-            formYape.style.display = 'block';
-          }
-        });
-      });
-      
-      // Manejar el envío del formulario
-      document.getElementById('confirmar-pago').addEventListener('click', function() {
-        const direccion = document.getElementById('direccion').value.trim();
-        const metodoActivo = document.querySelector('.metodo-pago.activo').getAttribute('data-metodo');
-        
-        if (!direccion) {
-          alert('Por favor ingrese una dirección de entrega');
-          return;
-        }
-        
-        if (metodoActivo === 'tarjeta') {
-          // Validar datos de la tarjeta (simplificado)
-          const numTarjeta = document.getElementById('numero-tarjeta').value.trim();
-          const nombreTarjeta = document.getElementById('nombre-tarjeta').value.trim();
-          const vencimiento = document.getElementById('vencimiento').value.trim();
-          const cvv = document.getElementById('cvv').value.trim();
-          
-          if (!numTarjeta || !nombreTarjeta || !vencimiento || !cvv) {
-            alert('Por favor complete todos los datos de la tarjeta');
-            return;
-          }
-        }
-        
-        // Aquí iría la lógica para procesar el pago
-        alert('¡Pedido realizado con éxito! Pronto nos comunicaremos para confirmar su pedido.');
-        
-        // Limpiar el carrito
-        localStorage.removeItem('carrito');
-        
-        // Redirigir a la página de inicio
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000);
-      });
-    });
+    }
   </script>
+
 </body>
 
 </html>

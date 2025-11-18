@@ -1,0 +1,185 @@
+/* Sistema de Diseño Unificado - Chifa El Punto */
+
+/* Paleta de Colores Principal */
+:root {
+  /* Colores Primarios - Tema Restaurante Chifa */
+  --color-primary: #8b0000;        /* Rojo oscuro principal */
+  --color-primary-light: #a00000;  /* Rojo más claro */
+  --color-primary-dark: #660000;    /* Rojo más oscuro */
+  
+  /* Colores Secundarios - Dorados/Acentos */
+  --color-secondary: #df9d05;       /* Dorado principal */
+  --color-secondary-light: #f4b400; /* Dorado más claro */
+  --color-secondary-dark: #c68900;  /* Dorado más oscuro */
+  
+  /* Colores Neutros */
+  --color-white: #ffffff;
+  --color-gray-light: #f5f5f5;
+  --color-gray-medium: #e0e0e0;
+  --color-gray-dark: #757575;
+  --color-black: #333333;
+  
+  /* Colores de Estado */
+  --color-success: #2e7d32;        /* Verde adaptado al tema */
+  --color-error: #c62828;           /* Rojo error (variante del primary) */
+  --color-warning: #f57c00;         /* Naranja warning */
+  
+  /* Tipografía - Sistema Jerárquico */
+  --font-family-primary: 'Imprima', sans-serif;
+  --font-family-secondary: 'Rosarivo', serif;
+  --font-family-accent: 'RocknRoll One', sans-serif;
+  
+  /* Escala Tipográfica - Unidad rem */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  
+  /* Pesos de Fuente */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  
+  /* Bordes y Sombras */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Clases Utilitarias de Color */
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-light); }
+.bg-primary-dark { background-color: var(--color-primary-dark); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-secondary-light { background-color: var(--color-secondary-light); }
+.bg-secondary-dark { background-color: var(--color-secondary-dark); }
+.bg-white { background-color: var(--color-white); }
+.bg-gray-light { background-color: var(--color-gray-light); }
+.bg-gray-medium { background-color: var(--color-gray-medium); }
+.bg-success { background-color: var(--color-success); }
+.bg-error { background-color: var(--color-error); }
+.bg-warning { background-color: var(--color-warning); }
+
+.text-primary { color: var(--color-primary); }
+.text-primary-light { color: var(--color-primary-light); }
+.text-primary-dark { color: var(--color-primary-dark); }
+.text-secondary { color: var(--color-secondary); }
+.text-secondary-light { color: var(--color-secondary-light); }
+.text-secondary-dark { color: var(--color-secondary-dark); }
+.text-white { color: var(--color-white); }
+.text-gray-light { color: var(--color-gray-light); }
+.text-gray-medium { color: var(--color-gray-medium); }
+.text-gray-dark { color: var(--color-gray-dark); }
+.text-black { color: var(--color-black); }
+.text-success { color: var(--color-success); }
+.text-error { color: var(--color-error); }
+.text-warning { color: var(--color-warning); }
+
+/* Clases Utilitarias de Tipografía */
+.font-primary { font-family: var(--font-family-primary); }
+.font-secondary { font-family: var(--font-family-secondary); }
+.font-accent { font-family: var(--font-family-accent); }
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Clases Utilitarias de Espaciado */
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+.p-2xl { padding: var(--spacing-2xl); }
+
+.m-xs { margin: var(--spacing-xs); }
+.m-sm { margin: var(--spacing-sm); }
+.m-md { margin: var(--spacing-md); }
+.m-lg { margin: var(--spacing-lg); }
+.m-xl { margin: var(--spacing-xl); }
+.m-2xl { margin: var(--spacing-2xl); }
+
+/* Bordes y Sombras */
+.rounded-sm { border-radius: var(--border-radius-sm); }
+.rounded-md { border-radius: var(--border-radius-md); }
+.rounded-lg { border-radius: var(--border-radius-lg); }
+.rounded-xl { border-radius: var(--border-radius-xl); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* Componentes Base con Nuevo Sistema */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  font-family: var(--font-family-primary);
+}

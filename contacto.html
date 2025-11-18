@@ -9,11 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
+  <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="minified/base.min.css">
   <link rel="stylesheet" href="minified/layout.min.css">
   <link rel="stylesheet" href="minified/components.min.css">
   <link rel="stylesheet" href="minified/responsive.min.css">
   <link rel="stylesheet" href="minified/animations.min.css">
+  <link rel="stylesheet" href="css/contacto.css">
   <title>Contacto - Chifa El Punto</title>
 </head>
 
@@ -74,63 +78,146 @@
 
         <button type="submit">Enviar Mensaje</button>
       </form>
-      <!-- ================= Delivery tabla ================= -->
+      <!-- ================= Delivery Cards ================= -->
       <div class="delivery-section">
         <h3>Zonas de Delivery</h3>
         <p>Realizamos envíos a los siguientes distritos:</p>
 
-        <div class="table-container">
-          <div class="table-responsive">
-            <table class="delivery-table">
-              <thead>
-                <tr>
-                  <th>Distrito</th>
-                  <th>Tiempo</th>
-                  <th>Envío</th>
-                  <th>Mínimo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-label="Distrito">Villa El Salvador</td>
-                  <td data-label="Tiempo">30-40 min</td>
-                  <td data-label="Envío">S/ 5.00</td>
-                  <td data-label="Mínimo">S/ 30.00</td>
-                </tr>
-                <tr>
-                  <td data-label="Distrito">Villa María del Triunfo</td>
-                  <td data-label="Tiempo">35-45 min</td>
-                  <td data-label="Envío">S/ 6.00</td>
-                  <td data-label="Mínimo">S/ 35.00</td>
-                </tr>
-                <tr>
-                  <td data-label="Distrito">Pachacámac</td>
-                  <td data-label="Tiempo">40-55 min</td>
-                  <td data-label="Envío">S/ 8.00</td>
-                  <td data-label="Mínimo">S/ 40.00</td>
-                </tr>
-                <tr>
-                  <td data-label="Distrito">Lurín</td>
-                  <td data-label="Tiempo">45-60 min</td>
-                  <td data-label="Envío">S/ 10.00</td>
-                  <td data-label="Mínimo">S/ 50.00</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="delivery-grid">
+          <div class="delivery-card">
+            <div class="delivery-card__header">
+              <div class="delivery-card__icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="delivery-card__title">Villa El Salvador</h4>
+            </div>
+            <div class="delivery-card__body">
+              <div class="delivery-info">
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-clock"></i> Tiempo
+                  </span>
+                  <span class="delivery-info__value">30-40 min</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-motorcycle"></i> Envío
+                  </span>
+                  <span class="delivery-info__value">S/ 5.00</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-shopping-cart"></i> Mínimo
+                  </span>
+                  <span class="delivery-info__value">S/ 30.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="delivery-card">
+            <div class="delivery-card__header">
+              <div class="delivery-card__icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="delivery-card__title">Villa María del Triunfo</h4>
+            </div>
+            <div class="delivery-card__body">
+              <div class="delivery-info">
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-clock"></i> Tiempo
+                  </span>
+                  <span class="delivery-info__value">35-45 min</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-motorcycle"></i> Envío
+                  </span>
+                  <span class="delivery-info__value">S/ 6.00</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-shopping-cart"></i> Mínimo
+                  </span>
+                  <span class="delivery-info__value">S/ 35.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="delivery-card">
+            <div class="delivery-card__header">
+              <div class="delivery-card__icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="delivery-card__title">Pachacámac</h4>
+            </div>
+            <div class="delivery-card__body">
+              <div class="delivery-info">
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-clock"></i> Tiempo
+                  </span>
+                  <span class="delivery-info__value">40-55 min</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-motorcycle"></i> Envío
+                  </span>
+                  <span class="delivery-info__value">S/ 8.00</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-shopping-cart"></i> Mínimo
+                  </span>
+                  <span class="delivery-info__value">S/ 40.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="delivery-card">
+            <div class="delivery-card__header">
+              <div class="delivery-card__icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="delivery-card__title">Lurín</h4>
+            </div>
+            <div class="delivery-card__body">
+              <div class="delivery-info">
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-clock"></i> Tiempo
+                  </span>
+                  <span class="delivery-info__value">45-60 min</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-motorcycle"></i> Envío
+                  </span>
+                  <span class="delivery-info__value">S/ 10.00</span>
+                </div>
+                <div class="delivery-info__item">
+                  <span class="delivery-info__label">
+                    <i class="fas fa-shopping-cart"></i> Mínimo
+                  </span>
+                  <span class="delivery-info__value">S/ 50.00</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="delivery-note">
-          <p class="delivery-note__item">
-            <span class="delivery-note__asterisk">*</span>
-            <span class="delivery-note__text">Los tiempos de entrega son aproximados y pueden variar según el tráfico y
-              condiciones climáticas.</span>
-          </p>
-          <p class="delivery-note__item">
-            <span class="delivery-note__asterisk">**</span>
-            <span class="delivery-note__text">Para pedidos fuera de estas zonas, contáctanos directamente para evaluar
-              disponibilidad y costos adicionales.</span>
-          </p>
+          <div class="delivery-note__item">
+            <i class="fas fa-info-circle"></i>
+            <span>Los tiempos de entrega son aproximados y pueden variar según el tráfico y condiciones climáticas.</span>
+          </div>
+          <div class="delivery-note__item">
+            <i class="fas fa-phone"></i>
+            <span>Para pedidos fuera de estas zonas, contáctanos directamente para evaluar disponibilidad y costos adicionales.</span>
+          </div>
         </div>
       </div>
     </section>
@@ -431,10 +518,11 @@
   </div>
 
   <!-- Footer y scripts pueden ir aquí -->
-  <script src="minified/carrito.min.js"></script>
-  <script src="minified/navegacion.min.js"></script>
-  <script src="minified/reproductor.min.js"></script>
-  <script src="minified/script.min.js"></script>
+  <script src="minified/carrito.min.js?v=1.0.1"></script>
+  <script src="minified/navegacion.min.js?v=1.0.1"></script>
+  <script src="minified/reproductor.min.js?v=1.0.1"></script>
+  <script src="minified/script.min.js?v=1.0.1"></script>
+  <script src="js/contacto-backend.js?v=1.0.1"></script>
 
   <!-- Script adicional para funcionalidad del mapa -->
   <script>
@@ -479,6 +567,13 @@
       }
 
     });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
+      });
+    }
   </script>
 </body>
 

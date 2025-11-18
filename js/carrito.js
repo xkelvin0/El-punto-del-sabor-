@@ -24,32 +24,31 @@ window.agregarAlCarrito = function(id, nombre, precio, imagen, cantidad = 1) {
         window.carrito = [];
         carrito = window.carrito;
     }
-    // Verificar si es la promoción 2x1
-    const esPromo2x1 = nombre.toLowerCase().includes('martes de wantanes');
+    // Verificar si es la promoción de descuento
+    const esPromoDescuento = nombre.toLowerCase().includes('jueves de wantanes');
     
-    // Si es la promoción 2x1, ajustar la cantidad y el precio
-    if (esPromo2x1) {
-        // Siempre agregar 2 unidades por el precio de 1
-        const productoExistente = carrito.find(item => item.id === id);
+    // Si es la promoción de descuento, ajustar el precio
+    if (esPromoDescuento) {
+        const productoExistente = carrito.find(item => item.id === id + '-promo');
         
         if (productoExistente) {
-            // Si ya existe, incrementar en 2 (para mantener el 2x1)
-            productoExistente.cantidad += 2;
+            productoExistente.cantidad += cantidad;
         } else {
-            // Si no existe, agregar 2 unidades
-            carrito.push({ 
-                id, 
-                nombre: nombre + ' (2x1)', // Indicar que es promoción 2x1
-                precio: precio * 2, // Precio total por las 2 unidades
-                precioUnitario: precio, // Guardar el precio unitario para mostrar
-                imagen, 
-                cantidad: 2, // Siempre 2 unidades
-                esPromo2x1: true // Marcar como promoción 2x1
-            });
+            // Si no existe, agregar producto con descuento del 50%
+            const nuevoProducto = {
+                id: id + '-promo',
+                nombre: nombre + ' (Jueves de Wantanes)',
+                precio: precio, // Precio con descuento aplicado
+                precio_original: precio * 2, // Precio original sin descuento (S/ 8.00)
+                imagen,
+                cantidad: cantidad,
+                esPromoDescuento: true
+            };
+            carrito.push(nuevoProducto);
         }
     } else {
         // Comportamiento normal para otros productos
-        const productoExistente = carrito.find(item => item.id === id && !item.esPromo2x1);
+        const productoExistente = carrito.find(item => item.id === id && !item.esPromoDescuento);
         
         if (productoExistente) {
             productoExistente.cantidad += cantidad;
@@ -60,8 +59,8 @@ window.agregarAlCarrito = function(id, nombre, precio, imagen, cantidad = 1) {
     
     guardarCarrito();
     actualizarContadorCarrito();
-    mostrarNotificacion(esPromo2x1 ? 
-        `¡Promoción 2x1 aplicada! 2x ${nombre} por S/ ${precio * 2}` : 
+    mostrarNotificacion(esPromoDescuento ? 
+        `¡Jueves de Wantanes! ${nombre} por S/ ${precio}` : 
         `${nombre} agregado al carrito`
     );
 }
@@ -159,6 +158,13 @@ function mostrarCarrito() {
 
     // Remover event listeners anteriores
     // Configurar eventos
+    if (btnPagar) {
+        btnPagar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.location.href = 'pagar.html';
+        });
+    }
+
     if (cerrarCarrito) {
         cerrarCarrito.removeEventListener('click', ocultarCarrito);
         cerrarCarrito.addEventListener('click', ocultarCarrito);
@@ -226,19 +232,11 @@ function actualizarCarrito() {
         let mostrarCantidad = item.cantidad;
         let mostrarPrecioUnitario = item.precio;
         
-        // Manejar promoción 2x1
-        if (item.esPromo2x1) {
-            // Para la promoción 2x1, mostramos el precio unitario real
-            mostrarPrecioUnitario = item.precioUnitario || item.precio / 2;
-            // El precio final es el precio unitario por la cantidad de pares
-            const pares = Math.ceil(item.cantidad / 2);
-            precioFinal = mostrarPrecioUnitario * pares;
-            
-            // Si es un nuevo item 2x1, forzar a que sea par
-            if (item.cantidad % 2 !== 0) {
-                item.cantidad++;
-                guardarCarrito();
-            }
+        // Manejar promoción de descuento
+        if (item.esPromoDescuento) {
+            // Para la promoción de descuento, el precio ya incluye el 50% de descuento
+            precioFinal = item.precio * item.cantidad;
+            mostrarPrecioUnitario = item.precio_original || item.precio * 2; // S/ 8.00 original
         } 
         // Manejar otras promociones
         else {
@@ -259,13 +257,13 @@ function actualizarCarrito() {
         itemElement.innerHTML = `
             <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-imagen">
             <div class="carrito-item-info">
-                <h4>${item.nombre} ${item.esPromo2x1 ? '<span class="etiqueta-promo"></span>' : ''}</h4>
-                ${item.esPromo2x1 ? 
-                  `<p class="precio">S/ ${precioFinal.toFixed(2)} <span class="precio-unitario">(2 x S/ ${mostrarPrecioUnitario.toFixed(2)})</span></p>` : 
+                <h4>${item.nombre}${item.esPromoDescuento ? '<span class="etiqueta-promo"></span>' : ''}</h4>
+                ${item.esPromoDescuento ? 
+                  `<p class="precio">S/ ${precioFinal.toFixed(2)} <span class="precio-unitario">(Jueves de Wantanes - S/ ${mostrarPrecioUnitario.toFixed(2)} c/u)</span></p>` : 
                   `<p class="precio">S/ ${precioFinal.toFixed(2)}</p>`}
                 <div class="cantidad-controls">
-                    <button class="cantidad-btn" data-action="decrease" data-id="${item.id}" ${item.esPromo2x1 && item.cantidad <= 2 ? 'disabled' : ''}>-</button>
-                    <span class="cantidad">${item.esPromo2x1 ? item.cantidad / 2 : item.cantidad} ${item.esPromo2x1 ? 'par/es' : ''}</span>
+                    <button class="cantidad-btn" data-action="decrease" data-id="${item.id}"${item.esPromoDescuento && item.cantidad <= 1 ? 'disabled' : ''}>-</button>
+                    <span class="cantidad">${item.cantidad}</span>
                     <button class="cantidad-btn" data-action="increase" data-id="${item.id}">+</button>
                 </div>
             </div>
@@ -279,11 +277,10 @@ function actualizarCarrito() {
     carrito.forEach(item => {
       let precioFinal = 0;
       
-      // Manejar promoción 2x1
-      if (item.esPromo2x1) {
-        const precioUnitario = item.precioUnitario || item.precio / 2;
-        const pares = Math.ceil(item.cantidad / 2);
-        precioFinal = precioUnitario * pares;
+      // Manejar promoción de descuento
+      if (item.esPromoDescuento) {
+        // El precio ya incluye el 50% de descuento
+        precioFinal = item.precio * item.cantidad;
       } 
       // Manejar otras promociones
       else {
@@ -344,17 +341,15 @@ function cambiarCantidad(id, action) {
     const item = carrito.find(item => item.id === id);
     if (!item) return;
 
-    // Manejar promoción 2x1
-    if (item.esPromo2x1) {
+    // Manejar promoción de descuento
+    if (item.esPromoDescuento) {
+        // Comportamiento normal - puede aumentar/disminuir de 1 en 1
         if (action === 'increase') {
-            // Aumentar de 2 en 2 para mantener el 2x1
-            item.cantidad += 2;
+            item.cantidad++;
         } else if (action === 'decrease') {
-            // Disminuir de 2 en 2, pero no menos de 2 (mínimo de la promoción)
-            if (item.cantidad > 2) {
-                item.cantidad -= 2;
+            if (item.cantidad > 1) {
+                item.cantidad--;
             } else {
-                // Si es 2 o menos, eliminar el producto
                 eliminarDelCarrito(id);
                 return;
             }
@@ -373,9 +368,10 @@ function cambiarCantidad(id, action) {
         }
     }
 
-    // Si es promoción 2x1, asegurarse que la cantidad sea par
-    if (item.esPromo2x1 && item.cantidad % 2 !== 0) {
-        item.cantidad++;
+    // Si es promoción 3x2, asegurarse que la cantidad sea múltiplo de 3
+    if (false) { // No hay restricción de cantidad para promoción de descuento
+        // Ajustar al múltiplo de 3 más cercano
+        item.cantidad = Math.ceil(item.cantidad / 3) * 3;
     }
 
     guardarCarrito();

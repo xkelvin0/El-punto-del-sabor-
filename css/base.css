@@ -2,6 +2,9 @@
    BASE STYLES - GENERAL AND RESET
    ============================================ */
 
+/* Importar Sistema de Diseño */
+@import url('./design-system.css');
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,7 +13,7 @@
 }
 
 body {
-  font-family: 'Imprima', sans-serif;
+  font-family: var(--font-family-primary);
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;

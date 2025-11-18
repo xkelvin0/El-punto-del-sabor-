@@ -277,7 +277,7 @@ button:active, .precio-comprar button:active {
 
 /* Efecto de éxito al hacer clic */
 @keyframes buttonSuccess {
-  0% { background-color: #4CAF50; }
+  0% { background-color: var(--color-success); }
   50% { transform: scale(0.95); }
   100% { background-color: #c00; transform: scale(1); }
 }

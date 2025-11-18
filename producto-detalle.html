@@ -11,12 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
-  <link rel="stylesheet" href="minified/base.min.css">
-  <link rel="stylesheet" href="minified/layout.min.css">
-  <link rel="stylesheet" href="minified/components.min.css">
-  <link rel="stylesheet" href="minified/responsive.min.css">
-  <link rel="stylesheet" href="minified/animations.min.css">
-  <link rel="stylesheet" href="minified/producto-detalle.min.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="minified/base.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/layout.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/components.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/responsive.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/animations.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/producto-detalle.min.css?v=1.0.5">
+  <link rel="stylesheet" href="css/contador-fix.css">
   <title>Detalle del Producto - Chifa El Punto</title>
 </head>
 
@@ -180,12 +184,19 @@
     </audio>
   </div>
 
-  <script src="minified/producto-detalle.min.js"></script>
-  <script src="minified/carrito-producto.min.js"></script>
-  <script src="minified/notificaciones.min.js"></script>
-  <script src="minified/navegacion.min.js"></script>
-  <script src="minified/reproductor.min.js"></script>
-  <script src="minified/script.min.js"></script>
+  <script src="minified/producto-detalle.min.js?v=1.0.5"></script>
+  <script src="minified/carrito-producto.min.js?v=1.0.1"></script>
+  <script src="minified/notificaciones.min.js?v=1.0.1"></script>
+  <script src="minified/navegacion.min.js?v=1.0.1"></script>
+  <script src="minified/reproductor.min.js?v=1.0.1"></script>
+  <script src="minified/script.min.js?v=1.0.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
 </body>
 
 </html>

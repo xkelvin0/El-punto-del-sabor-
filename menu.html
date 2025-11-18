@@ -9,11 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
+  <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="minified/base.min.css">
   <link rel="stylesheet" href="minified/layout.min.css">
   <link rel="stylesheet" href="minified/components.min.css">
   <link rel="stylesheet" href="minified/responsive.min.css">
   <link rel="stylesheet" href="minified/animations.min.css">
+  <link rel="stylesheet" href="css/menu-title.css">
   <title>Menú - Chifa El Punto</title>
 </head>
 
@@ -33,7 +37,12 @@
 
   <!-- ================= SECCIÓN MENÚ ================= -->
   <section id="menu" class="menu">
-    <h2>Menú</h2>
+    <div class="menu-header">
+      <h2 class="menu-title">
+        <span class="menu-text">Menú</span>
+        <span class="menu-underline"></span>
+      </h2>
+    </div>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Buscar platos...">
       <i class="fas fa-search"></i>
@@ -66,14 +75,15 @@
       </div>
     </div>
     <br>
-    <h3>Entradas</h3>
-    <hr class="linea">
-    <br><br>
-    <p class="quote">“Empieza con sabor, termina con historia. Nuestras entradas abren el apetito y despiertan la
-      tradición.”</p>
-    <br><br>
+    <div class="section-header">
+      <h3 class="section-title">
+        <span class="section-text">Entradas</span>
+        <span class="section-underline"></span>
+      </h3>
+      <p class="section-quote">"Empieza con sabor, termina con historia. Nuestras entradas abren el apetito y despiertan la tradición."</p>
+    </div>
     <div class="grid">
-      <div class="card" data-category="entradas" data-price="8">
+      <div class="card fadeIn" style="--delay: 1" data-category="entradas" data-price="8">
         <img src="imagenes/wantanfrito.jpeg" alt="Wantan frito">
         <h4>Wantan frito</h4>
         <p>Crujientes wantanes fritos, rellenos y acompañados de salsa agridulce (6 unidades).</p>
@@ -83,7 +93,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="entradas" data-price="10">
+      <div class="card fadeIn" style="--delay: 2" data-category="entradas" data-price="10">
         <img src="imagenes/siumai.jpeg" alt="Siu mai">
         <h4>Siu mai</h4>
         <p>Bocaditos de carne de cerdo y camarones cocidos al vapor (6 unidades).</p>
@@ -95,14 +105,15 @@
     </div>
     <br><br><br>
 
-    <h3>Platos de fondo</h3>
-    <hr class="linea">
-    <br><br>
-    <p class="quote">“Donde el fuego transforma. Arroz, tallarines y secretos que se cocinan sin apuro.”</p>
-    <br><br>
-
+    <div class="section-header">
+      <h3 class="section-title">
+        <span class="section-text">Platos de Fondo</span>
+        <span class="section-underline"></span>
+      </h3>
+      <p class="section-quote">"Donde el fuego transforma. Arroz, tallarines y secretos que se cocinan sin apuro."</p>
+    </div>
     <div class="grid">
-      <div class="card" data-category="platos" data-price="18">
+      <div class="card fadeIn" style="--delay: 3" data-category="platos" data-price="18">
         <img src="imagenes/chaufa.jpeg" alt="Arroz chaufa">
         <h4>Arroz chaufa</h4>
         <p>Clásico arroz frito con pollo, huevo y cebolla china.</p>
@@ -212,7 +223,7 @@
         </div>
       </div>
 
-      <div class="card" data-category="platos" data-price="30">
+      <div class="card fadeIn" style="--delay: 4" data-category="platos" data-price="30">
         <img src="imagenes/taypa.png" alt="Tallarín Taypa">
         <h4>Tallarín Taypa</h4>
         <p>Fideos salteados con carnes y mariscos. Taypa total.</p>
@@ -223,14 +234,15 @@
       </div>
     </div>
     <br><br><br>
-    <h3>Sopas</h3>
-    <hr class="linea">
-    <br><br>
-    <p class="quote">“Cada sorbo cuenta una historia. Caldos intensos, carnes tiernas y secretos que se cocinan lento.”
-    </p>
-    <br><br>
+    <div class="section-header">
+      <h3 class="section-title">
+        <span class="section-text">Sopas</span>
+        <span class="section-underline"></span>
+      </h3>
+      <p class="section-quote">"Cada sorbo cuenta una historia. Caldos intensos, carnes tiernas y secretos que se cocinan lento."</p>
+    </div>
     <div class="grid">
-      <div class="card" data-category="sopas">
+      <div class="card fadeIn" style="--delay: 1" data-category="sopas">
         <img src="imagenes/sopawantan.png" alt="Sopa Wantan">
         <h4>Sopa Wantan</h4>
         <p>Deliciosa sopa con wantanes, pollo y verduras.</p>
@@ -240,8 +252,8 @@
         </div>
       </div>
 
-      <div class="card" data-category="sopas">
-        <img src="imagenes/fuchifu.png  " alt="Sopa Fuchifu">
+      <div class="card fadeIn" style="--delay: 2" data-category="sopas">
+        <img src="imagenes/fuchifu.png" alt="Sopa Fuchifu">
         <h4>Sopa Fuchifu</h4>
         <p>Deliciosa sopa espesa con huevo, pollo y fideos chinos.</p>
         <div class="precio-comprar">
@@ -383,12 +395,19 @@
   </div>
 
   <!-- Footer y scripts pueden ir aquí -->
-  <script src="minified/busqueda.min.js"></script>
-  <script src="minified/filtros.min.js"></script>
-  <script src="minified/carrito.min.js"></script>
-  <script src="minified/navegacion.min.js"></script>
-  <script src="minified/reproductor.min.js"></script>
-  <script src="minified/script.min.js"></script>
+  <script src="minified/busqueda.min.js?v=1.0.1"></script>
+  <script src="minified/filtros.min.js?v=1.0.1"></script>
+  <script src="minified/carrito.min.js?v=1.0.1"></script>
+  <script src="minified/navegacion.min.js?v=1.0.1"></script>
+  <script src="minified/reproductor.min.js?v=1.0.1"></script>
+  <script src="minified/script.min.js?v=1.0.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
 </body>
 
 </html>

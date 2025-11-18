@@ -1,3 +1,6 @@
+/* Importar Sistema de Diseño */
+@import url('../css/design-system.css');
+
 /* ============================================
    BASE STYLES - GENERAL AND RESET
    ============================================ */
@@ -10,7 +13,7 @@
 }
 
 body {
-  font-family: 'Imprima', sans-serif;
+  font-family: var(--font-family-primary);
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;

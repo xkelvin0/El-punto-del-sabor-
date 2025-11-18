@@ -354,23 +354,23 @@
   
   /* Estilos específicos para cada botón */
   .btn-carrito {
-    background-color: #4CAF50 !important;
+    background-color: var(--color-success) !important;
     color: white !important;
   }
   
   .btn-volver {
-    background-color: #f44336 !important;
+    background-color: var(--color-error) !important;
     color: white !important;
   }
   
   .btn-favorito {
     background-color: #fff !important;
-    color: #e91e63 !important;
-    border: 2px solid #e91e63 !important;
+    color: var(--color-warning) !important;
+    border: 2px solid var(--color-warning) !important;
   }
   
   .btn-favorito.activo {
-    background-color: #e91e63 !important;
+    background-color: var(--color-warning) !important;
     color: white !important;
   }
   

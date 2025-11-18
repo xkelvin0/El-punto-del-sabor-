@@ -1,0 +1,17 @@
+{
+  "name": "Chifa El Punto",
+  "short_name": "El Punto",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#df9d05",
+  "icons": [
+    {
+      "src": "imagenes/logo2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -9,7 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
-  <link rel="stylesheet" href="minified/  base.min.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="minified/base.min.css">
   <link rel="stylesheet" href="minified/layout.min.css">
   <link rel="stylesheet" href="minified/components.min.css">
   <link rel="stylesheet" href="minified/responsive.min.css">
@@ -306,13 +309,20 @@
   </div>
 
   <!-- Footer y scripts pueden ir aquí -->
-  <script src="minified/carrito.min.js"></script>
-  <script src="minified/notificaciones.min.js"></script>
-  <script src="minified/navegacion.min.js"></script>
-  <script src="minified/busqueda.min.js"></script>
-  <script src="minified/filtros.min.js"></script>
-  <script src="minified/reproductor.min.js"></script>
-  <script src="minified/script.min.js"></script>
+  <script src="minified/carrito.min.js?v=1.0.1"></script>
+  <script src="minified/notificaciones.min.js?v=1.0.1"></script>
+  <script src="minified/navegacion.min.js?v=1.0.1"></script>
+  <script src="minified/busqueda.min.js?v=1.0.1"></script>
+  <script src="minified/filtros.min.js?v=1.0.1"></script>
+  <script src="minified/reproductor.min.js?v=1.0.1"></script>
+  <script src="minified/script.min.js?v=1.0.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
 </body>
 
 </html>

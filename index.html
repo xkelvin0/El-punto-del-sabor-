@@ -13,14 +13,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Imprima&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rosarivo&display=swap" rel="stylesheet">
   <link rel="icon" href="imagenes/logo2.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#df9d05">
 
   <!-- Enlaces a las hojas de estilo CSS -->
 
-  <link rel="stylesheet" href="minified/base.min.css">
-  <link rel="stylesheet" href="minified/layout.min.css">
-  <link rel="stylesheet" href="minified/components.min.css">
-  <link rel="stylesheet" href="minified/responsive.min.css">
-  <link rel="stylesheet" href="minified/animations.min.css">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="minified/base.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/layout.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/components.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/responsive.min.css?v=1.0.1">
+  <link rel="stylesheet" href="minified/animations.min.css?v=1.0.1">
 
   <!-- Título de la pestaña del navegador -->
   <title>Chifa El Punto</title>
@@ -150,18 +153,18 @@
 
         <!-- Promoción 2 -->
         <div class="promo-card">
-          <div class="promo-badge">2x1</div>
-          <img src="imagenes/wantanfrito.jpeg" alt="Martes de Wantanes" class="promo-image">
+          <div class="promo-badge">Jueves de Wantanes</div>
+          <img src="imagenes/wantanfrito.jpeg" alt="Wantanes Jueves de Wantanes" class="promo-image">
           <div class="promo-content">
-            <h3>Martes de Wantanes</h3>
-            <p class="promo-desc">Lleva 2 porciones de Wantanes por el precio de 1</p>
+            <h3>Jueves de Wantanes</h3>
+            <p class="promo-desc">Deliciosos wantanes fritos rellenos de pollo y chancho con salsa especial</p>
             <div class="promo-price">
-              <span class="original-price">S/ 16.00</span>
-              <span class="discounted-price">S/ 8.00 c/u</span>
+              <span class="original-price">S/ 8.00</span>
+              <span class="discounted-price">S/ 4.00 c/u</span>
             </div>
             <button class="btn-promo"
-              onclick="agregarAlCarrito('Martes de wantanes', 'Martes de Wantanes', 8.00, 'imagenes/wantanfrito.jpeg')">Comprar</button>
-            <div class="promo-tag">Válido solo martes</div>
+              onclick="agregarAlCarrito('wantanes-50-descuento', 'Jueves de Wantanes', 4.00, 'imagenes/wantanfrito.jpeg')">Comprar</button>
+            <div class="promo-tag">Válido todos los jueves</div>
           </div>
         </div>
 
@@ -325,6 +328,13 @@
   <script src="minified/filtros.min.js?v=1.0.1"></script>
   <script src="minified/reproductor.min.js?v=1.0.1"></script>
   <script src="minified/script.min.js?v=1.0.1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker/service-worker.js').catch(console.error);
+      });
+    }
+  </script>
 </body>
 
 </html>

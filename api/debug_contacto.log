@@ -1,0 +1,94 @@
+
+==================================================
+DEBUG CONTACTO - 2025-11-16 06:21:16
+==================================================
+Método: POST
+Content-Type: application/json
+Content-Length: 126
+
+--- Datos POST ---
+Array
+(
+)
+
+
+--- Raw Input ---
+{"nombre":"Kelvin acevedo","email":"kelvinace29@gmail.com","telefono":"936726266","tipo_consulta":"delivery","mensaje":"hola"}
+
+--- JSON Decodificado ---
+Array
+(
+    [nombre] => Kelvin acevedo
+    [email] => kelvinace29@gmail.com
+    [telefono] => 936726266
+    [tipo_consulta] => delivery
+    [mensaje] => hola
+)
+
+
+--- Headers ---
+Host: localhost
+Connection: keep-alive
+Content-Length: 126
+Pragma: no-cache
+Cache-Control: no-cache
+sec-ch-ua-platform: "Android"
+User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36
+sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+Content-Type: application/json
+sec-ch-ua-mobile: ?1
+Accept: */*
+Origin: http://localhost
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/El-punto-del-sabor-/contacto.html
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: es-ES,es;q=0.9
+
+==================================================
+DEBUG CONTACTO - 2025-11-16 06:21:16
+==================================================
+Método: POST
+Content-Type: application/json
+Content-Length: 126
+
+--- Datos POST ---
+Array
+(
+)
+
+
+--- Raw Input ---
+{"nombre":"Kelvin acevedo","email":"kelvinace29@gmail.com","telefono":"936726266","tipo_consulta":"delivery","mensaje":"hola"}
+
+--- JSON Decodificado ---
+Array
+(
+    [nombre] => Kelvin acevedo
+    [email] => kelvinace29@gmail.com
+    [telefono] => 936726266
+    [tipo_consulta] => delivery
+    [mensaje] => hola
+)
+
+
+--- Headers ---
+Host: localhost
+Connection: keep-alive
+Content-Length: 126
+Pragma: no-cache
+Cache-Control: no-cache
+sec-ch-ua-platform: "Android"
+User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36
+sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"
+Content-Type: application/json
+sec-ch-ua-mobile: ?1
+Accept: */*
+Origin: http://localhost
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost/El-punto-del-sabor-/contacto.html
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: es-ES,es;q=0.9

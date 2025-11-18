@@ -4,7 +4,7 @@ const Terser = require('terser');
 const CleanCSS = require('clean-css');
 
 // Create minified directory if it doesn't exist
-const minDir = path.join(__dirname, 'minified');
+const minDir = path.join(__dirname, '.');
 if (!fs.existsSync(minDir)) {
     fs.mkdirSync(minDir);
 }
@@ -43,12 +43,12 @@ async function minifyFile(filePath) {
 async function processFiles() {
     const filesToMinify = [
         // CSS files
-        'animations.css',
-        'base.css',
-        'components.css',
-        'layout.css',
-        'producto-detalle.css',
-        'responsive.css',
+        'css/animations.css',
+        'css/base.css',
+        'css/components.css',
+        'css/layout.css',
+        'css/producto-detalle.css',
+        'css/responsive.css',
         // JS files
         'js/busqueda.js',
         'js/carrito-producto.js',
@@ -63,7 +63,7 @@ async function processFiles() {
 
     let successCount = 0;
     for (const file of filesToMinify) {
-        const filePath = path.join(__dirname, file);
+        const filePath = path.join(__dirname, '..', file);
         if (fs.existsSync(filePath)) {
             const success = await minifyFile(filePath);
             if (success) successCount++;

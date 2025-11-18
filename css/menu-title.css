@@ -1,0 +1,305 @@
+/* Estilos para el título del menú */
+.menu-header {
+  text-align: center;
+  margin: 2rem 0 3rem;
+  position: relative;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.menu-title {
+  display: inline-block;
+  position: relative;
+  font-family: 'RocknRoll One', cursive;
+  font-size: 3.5rem;
+  color: #c00;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 1s ease-out;
+}
+
+.menu-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+  background: linear-gradient(45deg, #c00, #a00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.menu-title:hover .menu-text {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px rgba(200, 0, 0, 0.3);
+}
+
+.menu-underline {
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #c00, #f4a261);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  position: relative;
+  animation: underlineGrow 1s ease-out 0.5s both;
+}
+
+.menu-title::before,
+.menu-title::after {
+  content: '✧';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c00;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.menu-title::before {
+  left: -2rem;
+  animation: fadeInLeft 0.8s ease-out 0.3s both;
+}
+
+.menu-title::after {
+  right: -2rem;
+  animation: fadeInRight 0.8s ease-out 0.3s both;
+}
+
+/* Estilos para títulos de sección */
+.section-header {
+  text-align: center;
+  margin: 4rem 0 2rem;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.section-title {
+  display: inline-block;
+  position: relative;
+  font-family: 'Imprima', sans-serif;
+  font-size: 2.2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 1rem;
+  padding: 0 1.5rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.section-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(45deg, #333, #555);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.section-underline {
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #c00, #f4a261);
+  margin: 0.5rem auto 1.5rem;
+  border-radius: 2px;
+  position: relative;
+  animation: underlineGrow 1s ease-out 0.3s both;
+}
+
+.section-quote {
+  font-family: 'Rosarivo', serif;
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+  padding: 1rem 2rem;
+  animation: fadeIn 1s ease-out 0.5s both;
+  opacity: 0;
+}
+
+.section-quote::before,
+.section-quote::after {
+  content: '"';
+  font-size: 3rem;
+  color: #c00;
+  opacity: 0.3;
+  position: absolute;
+  font-family: serif;
+  line-height: 1;
+}
+
+.section-quote::before {
+  top: 0;
+  left: 0;
+}
+
+.section-quote::after {
+  bottom: -1.5rem;
+  right: 0;
+}
+
+/* Efectos hover */
+.section-title:hover .section-text {
+  transform: translateY(-3px);
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title:hover .section-underline {
+  transform: scaleX(1.2);
+  background: linear-gradient(90deg, #f4a261, #c00);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate(-20px, -50%);
+  }
+  to {
+    opacity: 0.7;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate(20px, -50%);
+  }
+  to {
+    opacity: 0.7;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 80px;
+    opacity: 1;
+  }
+}
+
+/* Efecto de brillo al pasar el ratón */
+.menu-title::after,
+.menu-title::before {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.menu-title:hover::before {
+  transform: translate(-10px, -50%) scale(1.2);
+  opacity: 1;
+}
+
+.menu-title:hover::after {
+  transform: translate(10px, -50%) scale(1.2);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .menu-title {
+    font-size: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-quote {
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-title {
+    font-size: 2.5rem;
+  }
+  
+  .menu-underline {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-underline {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .section-quote {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .section-quote::before,
+  .section-quote::after {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .menu-title::before,
+  .menu-title::after {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .section-quote {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .section-quote::before,
+  .section-quote::after {
+    font-size: 2rem;
+  }
+}

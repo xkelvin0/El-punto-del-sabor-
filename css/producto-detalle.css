@@ -410,31 +410,18 @@ body {
 }
 
 .producto-precio {
-  font-size: 1.8rem;
-  color: #2e7d32;
-  margin: 30px 0;
-  font-weight: 700;
+  font-size: 2.2rem;
+  color: #d32f2f;
+  margin: 20px 0 30px;
+  font-weight: 800;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   background: transparent;
   border: none;
   padding: 0;
-}
-
-.producto-precio::before {
-  content: 'Precio:';
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-right: 8px;
-  display: inline-block;
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 8px 12px;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
 }
 
 .producto-descripcion {
@@ -449,7 +436,6 @@ body {
   hyphens: auto;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  transform: translateY(-25px);
 }
 
 /* Responsive styles for product description */
@@ -493,11 +479,6 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-  }
-  
-  .producto-precio::before {
-    position: static;
-    margin-bottom: 5px;
   }
   
   .producto-galeria {
@@ -602,11 +583,6 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-  }
-  
-  .producto-precio::before {
-    font-size: 0.9rem;
-    margin-right: 5px;
   }
   
   .producto-galeria {
@@ -778,15 +754,15 @@ body {
 }
 
 .btn-carrito:hover {
-  background-color: var(--color-success);
+  background-color: #43a047;
   transform: translateY(-2px);
 }
 
-/* Botón favorito mejorado */
+/* ❤️ Botón favorito mejorado */
 .btn-favorito {
   background-color: #fff;
-  color: var(--color-warning);
-  border: 2px solid var(--color-warning);
+  color: #e91e63;
+  border: 2px solid #e91e63;
   border-radius: 8px;
   padding: 10px 18px;
   font-weight: 600;
@@ -805,7 +781,7 @@ body {
 }
 
 .btn-favorito.activo {
-  background-color: var(--color-warning);
+  background-color: #e91e63;
   color: white;
   border-color: #d81b60;
 }
@@ -920,10 +896,42 @@ body {
   .precio-contenedor { 
     padding: 6px 10px; 
     flex-wrap: nowrap !important; 
-    white-space: nowrap !important; 
-    min-width: 0 !important;
-    flex: 0 1 auto !important;
   }
+  
+  /* Estilos para el contador de productos */
+  .producto-contador {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 15px auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 200px !important;
+  }
+  
+  .producto-contador button,
+  .producto-contador input {
+    margin: 0 5px !important;
+  }
+  
+  .producto-contador button {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 1.1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+  
+  .producto-contador input {
+    width: 50px !important;
+    height: 35px !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    padding: 0 !important;
+  }
+  
   .producto-precio { 
     margin: 10px 0 16px !important; 
     display: flex !important; 
@@ -988,34 +996,6 @@ body {
     padding-left: 0; 
     justify-content: center;
     padding-right: 40px;
-  }
-  
-  /* Ordenar elementos para móviles - ingredientes primero */
-  .producto-info {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  
-  .seccion-ingredientes {
-    order: 1 !important;
-  }
-  
-  .producto-contador {
-    order: 2 !important;
-    margin: 15px 0 !important;
-    clear: both !important;
-  }
-  
-  .seccion-alergenos-wrapper {
-    order: 3 !important;
-    margin-top: 20px !important;
-    clear: both !important;
-  }
-  
-  .botones-accion {
-    order: 4 !important;
-    margin-top: 20px !important;
-    clear: both !important;
   }
   
   .producto-contador button {
@@ -1345,6 +1325,66 @@ body {
   .menu-hamburguesa {       
     font-size: 1.3rem;      
     padding: 0.4rem;        
+  }
+}
+
+/* Estilos específicos para 375px */
+@media (max-width: 375px) {
+  .seccion-alergenos-wrapper {
+    order: 3 !important;
+    margin-top: 20px !important;
+    clear: both !important;
+  }
+  
+  .producto-contador {
+    order: 2 !important;
+    margin: 15px 0 !important;
+    clear: both !important;
+  }
+  
+  .botones-accion {
+    order: 4 !important;
+    margin-top: 20px !important;
+    clear: both !important;
+  }
+  
+  .seccion-ingredientes {
+    order: 1 !important;
+  }
+  
+  .producto-info {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Estilos específicos para 320px */
+@media (max-width: 320px) {
+  .seccion-alergenos-wrapper {
+    order: 3 !important;
+    margin-top: 20px !important;
+    clear: both !important;
+  }
+  
+  .producto-contador {
+    order: 2 !important;
+    margin: 15px 0 !important;
+    clear: both !important;
+  }
+  
+  .botones-accion {
+    order: 4 !important;
+    margin-top: 20px !important;
+    clear: both !important;
+  }
+  
+  .seccion-ingredientes {
+    order: 1 !important;
+  }
+  
+  .producto-info {
+    display: flex !important;
+    flex-direction: column !important;
   }
 }
 }

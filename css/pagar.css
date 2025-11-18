@@ -1,0 +1,157 @@
+/* Estilos específicos para la página de pago */
+
+.pago-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.pago-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.resumen-pedido, .formulario-pago {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.resumen-total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #333;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-pagar {
+  background-color: #df9d05;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-pagar:hover {
+  background-color: #c78e04;
+}
+
+.metodo-pago {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.metodo-pago:hover {
+  border-color: #df9d05;
+  background: #fff9e6;
+}
+
+.tipo-entrega {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.opcion-entrega {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.opcion-entrega:hover {
+  border-color: #df9d05;
+  background: #fff9e6;
+}
+
+.opcion-entrega input[type="radio"] {
+  margin: 0;
+}
+
+.metodo-pago.activo {
+  border-color: #df9d05;
+  background: #fff9e6;
+}
+
+.metodo-pago i {
+  margin-right: 10px;
+  color: #df9d05;
+}
+
+.datos-cliente h3 {
+  color: #1a4b8c;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #1a4b8c;
+  padding-bottom: 0.5rem;
+}
+
+.datos-cliente .form-control {
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.datos-cliente .form-control:focus {
+  border-color: #1a4b8c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 75, 140, 0.1);
+}
+
+.datos-cliente label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .pago-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -583,6 +583,7 @@ function cargarProducto() {
         if (seccionIngredientes) {
           seccionIngredientes.innerHTML = `
             ${producto.ingredientes ? renderizarIngredientes(producto.ingredientes) : ''}
+            <div class="separador-ingredientes"></div>
             ${producto.alérgenos ? renderizarAlergenos(producto.alérgenos) : ''}
           `;
           
